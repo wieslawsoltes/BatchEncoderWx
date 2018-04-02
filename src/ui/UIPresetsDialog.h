@@ -52,15 +52,10 @@ public:
     UIPresetsDialog(wxWindow* parent);
     //// end generated class members
 protected:
-    bool bTransfer = false;
-    int nCurrentItem = -1;
     std::vector<CPreset> m_Items;
     std::vector<ItemColumn> m_Columns;
 protected:
     void OnCharHook(wxKeyEvent& event);
-protected:
-    template<typename T, typename U>
-    void UpdateProperty(std::function<void(T&, U&)> setter, U& property);
 };
 
 #endif // __UIPresetsDialog__

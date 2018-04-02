@@ -16,6 +16,9 @@ public:
 class ItemsList : public wxListCtrl
 {
 public:
+    bool bTransfer = false;
+    int nCurrentItem = -1;
+public:
     std::function<std::wstring(int, int)> GetText = nullptr;
     std::function<void(int, int, wxString&)> SetText = nullptr;
 public:
@@ -46,6 +49,7 @@ public:
         this->Disconnect(wxEVT_COMMAND_LIST_ITEM_DESELECTED, wxListEventHandler(ItemsList::m_listCtrlItemsOnListItemDeselected), NULL, this);
         this->Disconnect(wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler(ItemsList::m_listCtrlItemsOnListItemSelected), NULL, this);
     }
+public:
     wxString OnGetItemText(long item, long column) const
     {
         if (GetText != nullptr)
@@ -54,6 +58,7 @@ public:
         }
         return L"??";
     }
+public:
     void m_listCtrlItemsOnListBeginLabelEdit(wxListEvent& event)
     {
     }
@@ -81,6 +86,56 @@ public:
     }
     void m_listCtrlItemsOnListItemSelected(wxListEvent& event)
     {
+    }
+public:
+    template<typename T>
+    void UpdateProperties(wxWindowBase *parent, std::function<void(T&)> set, std::function<void()> reset, std::vector<T>& items)
+    {
+        if (this->GetSelectedItemCount() > 0)
+        {
+            int nSelected = this->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+            if (nSelected >= 0 && nCurrentItem != nSelected)
+            {
+                bTransfer = true;
+                auto& item = items[nSelected];
+                set(item);
+                nCurrentItem = nSelected;
+                parent->TransferDataToWindow();
+                bTransfer = false;
+                wxLogDebug(L"Set Properties");
+            }
+        }
+        else
+        {
+            if (nCurrentItem != -1)
+            {
+                bTransfer = true;
+                reset();
+                nCurrentItem = -1;
+                parent->TransferDataToWindow();
+                bTransfer = false;
+                wxLogDebug(L"Reset Properties");
+            }
+        }
+    }
+public:
+    template<typename T, typename U>
+    void UpdateProperty(wxWindowBase *parent, std::function<void(T&, U&)> setter, U& property, std::vector<T>& items)
+    {
+        if (bTransfer == false)
+        {
+            bTransfer = true;
+            int nSelected = this->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+            if (nSelected >= 0)
+            {
+                auto& item = items[nSelected];
+                parent->TransferDataFromWindow();
+                setter(item, property);
+                this->RefreshItem(nSelected);
+                wxLogDebug(L"Update Property");
+            }
+            bTransfer = false;
+        }
     }
 };
 

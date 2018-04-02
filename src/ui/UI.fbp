@@ -88,7 +88,7 @@
             <event name="OnSetFocus"></event>
             <event name="OnSize"></event>
             <event name="OnUpdateUI"></event>
-            <object class="wxMenuBar" expanded="1">
+            <object class="wxMenuBar" expanded="0">
                 <property name="bg"></property>
                 <property name="context_help"></property>
                 <property name="context_menu">1</property>
@@ -1338,7 +1338,7 @@
                                 <property name="border">5</property>
                                 <property name="flag">wxEXPAND | wxALL</property>
                                 <property name="proportion">1</property>
-                                <object class="wxPanel" expanded="1">
+                                <object class="wxPanel" expanded="0">
                                     <property name="BottomDockable">1</property>
                                     <property name="LeftDockable">1</property>
                                     <property name="RightDockable">1</property>
@@ -1412,16 +1412,16 @@
                                     <event name="OnSetFocus"></event>
                                     <event name="OnSize"></event>
                                     <event name="OnUpdateUI"></event>
-                                    <object class="wxBoxSizer" expanded="1">
+                                    <object class="wxBoxSizer" expanded="0">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizerList</property>
                                         <property name="orient">wxVERTICAL</property>
                                         <property name="permission">protected</property>
-                                        <object class="sizeritem" expanded="1">
+                                        <object class="sizeritem" expanded="0">
                                             <property name="border">2</property>
                                             <property name="flag">wxALL|wxEXPAND</property>
                                             <property name="proportion">1</property>
-                                            <object class="wxListCtrl" expanded="1">
+                                            <object class="wxListCtrl" expanded="0">
                                                 <property name="BottomDockable">1</property>
                                                 <property name="LeftDockable">1</property>
                                                 <property name="RightDockable">1</property>
@@ -1520,11 +1520,11 @@
                                                 <event name="OnSetFocus"></event>
                                                 <event name="OnSize"></event>
                                                 <event name="OnUpdateUI"></event>
-                                                <object class="wxMenu" expanded="1">
+                                                <object class="wxMenu" expanded="0">
                                                     <property name="label">ItemsContextMenu</property>
                                                     <property name="name">m_menuListItems</property>
                                                     <property name="permission">protected</property>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1539,7 +1539,7 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsAddFileOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1554,11 +1554,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsAddDirOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems1</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1573,11 +1573,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsRenameOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems2</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1592,11 +1592,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsEditPathsOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems3</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1611,7 +1611,7 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsResetTimeOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1626,11 +1626,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsResetOutputOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems4</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1645,7 +1645,7 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsRemoveOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1660,11 +1660,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsCropOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems5</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1679,7 +1679,7 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsSelectAllOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1694,7 +1694,7 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsSelectNoneOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1709,11 +1709,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsInvertSelectionOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems6</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -1728,7 +1728,7 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsOpenFileOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -3083,7 +3083,7 @@
                                 <property name="border">5</property>
                                 <property name="flag">wxEXPAND | wxALL</property>
                                 <property name="proportion">1</property>
-                                <object class="wxPanel" expanded="1">
+                                <object class="wxPanel" expanded="0">
                                     <property name="BottomDockable">1</property>
                                     <property name="LeftDockable">1</property>
                                     <property name="RightDockable">1</property>
@@ -3157,16 +3157,16 @@
                                     <event name="OnSetFocus"></event>
                                     <event name="OnSize"></event>
                                     <event name="OnUpdateUI"></event>
-                                    <object class="wxBoxSizer" expanded="1">
+                                    <object class="wxBoxSizer" expanded="0">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizerList</property>
                                         <property name="orient">wxHORIZONTAL</property>
                                         <property name="permission">protected</property>
-                                        <object class="sizeritem" expanded="1">
+                                        <object class="sizeritem" expanded="0">
                                             <property name="border">2</property>
                                             <property name="flag">wxALL|wxEXPAND</property>
                                             <property name="proportion">1</property>
-                                            <object class="wxListCtrl" expanded="1">
+                                            <object class="wxListCtrl" expanded="0">
                                                 <property name="BottomDockable">1</property>
                                                 <property name="LeftDockable">1</property>
                                                 <property name="RightDockable">1</property>
@@ -3265,11 +3265,11 @@
                                                 <event name="OnSetFocus"></event>
                                                 <event name="OnSize"></event>
                                                 <event name="OnUpdateUI"></event>
-                                                <object class="wxMenu" expanded="1">
+                                                <object class="wxMenu" expanded="0">
                                                     <property name="label">ItemsContextMenu</property>
                                                     <property name="name">m_menuListItems</property>
                                                     <property name="permission">protected</property>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -3284,11 +3284,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDuplicateOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems1</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -3303,7 +3303,7 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsMoveUpOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -3318,11 +3318,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsMoveDownOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems2</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -3337,11 +3337,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDeleteAllOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems3</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -3356,11 +3356,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDeleteOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems4</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -3378,11 +3378,11 @@
                                                 </object>
                                             </object>
                                         </object>
-                                        <object class="sizeritem" expanded="1">
+                                        <object class="sizeritem" expanded="0">
                                             <property name="border">5</property>
                                             <property name="flag">wxEXPAND</property>
                                             <property name="proportion">0</property>
-                                            <object class="wxBoxSizer" expanded="1">
+                                            <object class="wxBoxSizer" expanded="0">
                                                 <property name="minimum_size"></property>
                                                 <property name="name">bSizerButtons</property>
                                                 <property name="orient">wxVERTICAL</property>
@@ -3673,11 +3673,11 @@
                                                         <property name="permission">none</property>
                                                     </object>
                                                 </object>
-                                                <object class="sizeritem" expanded="1">
+                                                <object class="sizeritem" expanded="0">
                                                     <property name="border">5</property>
                                                     <property name="flag">wxEXPAND</property>
                                                     <property name="proportion">0</property>
-                                                    <object class="wxBoxSizer" expanded="1">
+                                                    <object class="wxBoxSizer" expanded="0">
                                                         <property name="minimum_size"></property>
                                                         <property name="name">bSizerButtonsBottom</property>
                                                         <property name="orient">wxVERTICAL</property>
@@ -5125,7 +5125,7 @@
                                 <property name="border">5</property>
                                 <property name="flag">wxEXPAND | wxALL</property>
                                 <property name="proportion">1</property>
-                                <object class="wxPanel" expanded="1">
+                                <object class="wxPanel" expanded="0">
                                     <property name="BottomDockable">1</property>
                                     <property name="LeftDockable">1</property>
                                     <property name="RightDockable">1</property>
@@ -5199,16 +5199,16 @@
                                     <event name="OnSetFocus"></event>
                                     <event name="OnSize"></event>
                                     <event name="OnUpdateUI"></event>
-                                    <object class="wxBoxSizer" expanded="1">
+                                    <object class="wxBoxSizer" expanded="0">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizerList</property>
                                         <property name="orient">wxHORIZONTAL</property>
                                         <property name="permission">protected</property>
-                                        <object class="sizeritem" expanded="1">
+                                        <object class="sizeritem" expanded="0">
                                             <property name="border">2</property>
                                             <property name="flag">wxALL|wxEXPAND</property>
                                             <property name="proportion">1</property>
-                                            <object class="wxListCtrl" expanded="1">
+                                            <object class="wxListCtrl" expanded="0">
                                                 <property name="BottomDockable">1</property>
                                                 <property name="LeftDockable">1</property>
                                                 <property name="RightDockable">1</property>
@@ -5307,11 +5307,11 @@
                                                 <event name="OnSetFocus"></event>
                                                 <event name="OnSize"></event>
                                                 <event name="OnUpdateUI"></event>
-                                                <object class="wxMenu" expanded="1">
+                                                <object class="wxMenu" expanded="0">
                                                     <property name="label">ItemsContextMenu</property>
                                                     <property name="name">m_menuListItems</property>
                                                     <property name="permission">protected</property>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -5326,11 +5326,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDuplicateOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems1</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -5345,11 +5345,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDeleteAllOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems2</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -5364,11 +5364,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDeleteOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems3</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -5386,20 +5386,20 @@
                                                 </object>
                                             </object>
                                         </object>
-                                        <object class="sizeritem" expanded="1">
+                                        <object class="sizeritem" expanded="0">
                                             <property name="border">5</property>
                                             <property name="flag">wxEXPAND</property>
                                             <property name="proportion">0</property>
-                                            <object class="wxBoxSizer" expanded="1">
+                                            <object class="wxBoxSizer" expanded="0">
                                                 <property name="minimum_size"></property>
                                                 <property name="name">bSizerButtons</property>
                                                 <property name="orient">wxVERTICAL</property>
                                                 <property name="permission">none</property>
-                                                <object class="sizeritem" expanded="1">
+                                                <object class="sizeritem" expanded="0">
                                                     <property name="border">5</property>
                                                     <property name="flag">wxEXPAND</property>
                                                     <property name="proportion">0</property>
-                                                    <object class="wxBoxSizer" expanded="1">
+                                                    <object class="wxBoxSizer" expanded="0">
                                                         <property name="minimum_size"></property>
                                                         <property name="name">bSizerButtonsTop</property>
                                                         <property name="orient">wxVERTICAL</property>
@@ -5789,7 +5789,7 @@
                                 <property name="border">5</property>
                                 <property name="flag">wxEXPAND | wxALL</property>
                                 <property name="proportion">0</property>
-                                <object class="wxPanel" expanded="0">
+                                <object class="wxPanel" expanded="1">
                                     <property name="BottomDockable">1</property>
                                     <property name="LeftDockable">1</property>
                                     <property name="RightDockable">1</property>
@@ -9773,7 +9773,7 @@
                                 <property name="border">5</property>
                                 <property name="flag">wxEXPAND | wxALL</property>
                                 <property name="proportion">1</property>
-                                <object class="wxPanel" expanded="1">
+                                <object class="wxPanel" expanded="0">
                                     <property name="BottomDockable">1</property>
                                     <property name="LeftDockable">1</property>
                                     <property name="RightDockable">1</property>
@@ -9847,16 +9847,16 @@
                                     <event name="OnSetFocus"></event>
                                     <event name="OnSize"></event>
                                     <event name="OnUpdateUI"></event>
-                                    <object class="wxBoxSizer" expanded="1">
+                                    <object class="wxBoxSizer" expanded="0">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizerList</property>
                                         <property name="orient">wxHORIZONTAL</property>
                                         <property name="permission">protected</property>
-                                        <object class="sizeritem" expanded="1">
+                                        <object class="sizeritem" expanded="0">
                                             <property name="border">2</property>
                                             <property name="flag">wxALL|wxEXPAND</property>
                                             <property name="proportion">1</property>
-                                            <object class="wxListCtrl" expanded="1">
+                                            <object class="wxListCtrl" expanded="0">
                                                 <property name="BottomDockable">1</property>
                                                 <property name="LeftDockable">1</property>
                                                 <property name="RightDockable">1</property>
@@ -9955,11 +9955,11 @@
                                                 <event name="OnSetFocus"></event>
                                                 <event name="OnSize"></event>
                                                 <event name="OnUpdateUI"></event>
-                                                <object class="wxMenu" expanded="1">
+                                                <object class="wxMenu" expanded="0">
                                                     <property name="label">ItemsContextMenu</property>
                                                     <property name="name">m_menuListItems</property>
                                                     <property name="permission">protected</property>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -9974,11 +9974,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDuplicateOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems1</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -9993,11 +9993,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDeleteAllOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems2</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -10012,11 +10012,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDeleteOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems3</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -10034,20 +10034,20 @@
                                                 </object>
                                             </object>
                                         </object>
-                                        <object class="sizeritem" expanded="1">
+                                        <object class="sizeritem" expanded="0">
                                             <property name="border">5</property>
                                             <property name="flag">wxEXPAND</property>
                                             <property name="proportion">0</property>
-                                            <object class="wxBoxSizer" expanded="1">
+                                            <object class="wxBoxSizer" expanded="0">
                                                 <property name="minimum_size"></property>
                                                 <property name="name">bSizerButtons</property>
                                                 <property name="orient">wxVERTICAL</property>
                                                 <property name="permission">none</property>
-                                                <object class="sizeritem" expanded="1">
+                                                <object class="sizeritem" expanded="0">
                                                     <property name="border">5</property>
                                                     <property name="flag">wxEXPAND</property>
                                                     <property name="proportion">0</property>
-                                                    <object class="wxBoxSizer" expanded="1">
+                                                    <object class="wxBoxSizer" expanded="0">
                                                         <property name="minimum_size"></property>
                                                         <property name="name">bSizerButtonsTop</property>
                                                         <property name="orient">wxVERTICAL</property>
@@ -12886,7 +12886,7 @@
                                 <property name="border">5</property>
                                 <property name="flag">wxEXPAND | wxALL</property>
                                 <property name="proportion">1</property>
-                                <object class="wxPanel" expanded="1">
+                                <object class="wxPanel" expanded="0">
                                     <property name="BottomDockable">1</property>
                                     <property name="LeftDockable">1</property>
                                     <property name="RightDockable">1</property>
@@ -12960,16 +12960,16 @@
                                     <event name="OnSetFocus"></event>
                                     <event name="OnSize"></event>
                                     <event name="OnUpdateUI"></event>
-                                    <object class="wxBoxSizer" expanded="1">
+                                    <object class="wxBoxSizer" expanded="0">
                                         <property name="minimum_size"></property>
                                         <property name="name">bSizerList</property>
                                         <property name="orient">wxHORIZONTAL</property>
                                         <property name="permission">protected</property>
-                                        <object class="sizeritem" expanded="1">
+                                        <object class="sizeritem" expanded="0">
                                             <property name="border">2</property>
                                             <property name="flag">wxALL|wxEXPAND</property>
                                             <property name="proportion">1</property>
-                                            <object class="wxListCtrl" expanded="1">
+                                            <object class="wxListCtrl" expanded="0">
                                                 <property name="BottomDockable">1</property>
                                                 <property name="LeftDockable">1</property>
                                                 <property name="RightDockable">1</property>
@@ -13068,11 +13068,11 @@
                                                 <event name="OnSetFocus"></event>
                                                 <event name="OnSize"></event>
                                                 <event name="OnUpdateUI"></event>
-                                                <object class="wxMenu" expanded="1">
+                                                <object class="wxMenu" expanded="0">
                                                     <property name="label">ItemsContextMenu</property>
                                                     <property name="name">m_menuListItems</property>
                                                     <property name="permission">protected</property>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -13087,11 +13087,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDuplicateOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems1</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -13106,7 +13106,7 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsMoveUpOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -13121,11 +13121,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsMoveDownOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems2</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -13140,11 +13140,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDeleteAllOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems3</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -13159,11 +13159,11 @@
                                                         <event name="OnMenuSelection">m_menuItemItemsDeleteOnMenuSelection</event>
                                                         <event name="OnUpdateUI"></event>
                                                     </object>
-                                                    <object class="separator" expanded="1">
+                                                    <object class="separator" expanded="0">
                                                         <property name="name">m_separatorItems4</property>
                                                         <property name="permission">none</property>
                                                     </object>
-                                                    <object class="wxMenuItem" expanded="1">
+                                                    <object class="wxMenuItem" expanded="0">
                                                         <property name="bitmap"></property>
                                                         <property name="checked">0</property>
                                                         <property name="enabled">1</property>
@@ -13181,7 +13181,7 @@
                                                 </object>
                                             </object>
                                         </object>
-                                        <object class="sizeritem" expanded="1">
+                                        <object class="sizeritem" expanded="0">
                                             <property name="border">5</property>
                                             <property name="flag">wxEXPAND</property>
                                             <property name="proportion">0</property>

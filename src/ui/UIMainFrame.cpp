@@ -5,6 +5,9 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
     :
     MainFrame(parent)
 {
+    m_panelProgress->Hide();
+    m_panelBottom->Show();
+
     for (int i = 0; i < 100; i++)
     {
         CItem item;
@@ -64,11 +67,6 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
     };
 
     m_listCtrlItems->SetItemCount(m_Items.size());
-    bSizerList->Add(m_listCtrlItems, 1, wxLEFT | wxRIGHT | wxEXPAND, 2);
-
-    m_panelProgress->Hide();
-    m_panelBottom->Show();
-
     m_listCtrlItems->SetFocus();
 }
 

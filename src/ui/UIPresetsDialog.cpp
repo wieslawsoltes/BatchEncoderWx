@@ -44,7 +44,6 @@ UIPresetsDialog::UIPresetsDialog(wxWindow* parent)
     };
 
     m_listCtrlItems->SetItemCount(m_Items.size());
-    bSizerList->Insert(0, m_listCtrlItems, 1, wxALL | wxEXPAND, 2);
 
     m_listCtrlItems->SetFocus();
 }

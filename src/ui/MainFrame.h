@@ -11,6 +11,7 @@
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
 #include <wx/intl.h>
+#include "ItemsList.h"
 #include <wx/string.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
@@ -25,6 +26,7 @@
 #include <wx/sizer.h>
 #include <wx/statbox.h>
 #include <wx/panel.h>
+#include <wx/listctrl.h>
 #include <wx/gauge.h>
 #include <wx/button.h>
 #include <wx/spinctrl.h>
@@ -63,6 +65,8 @@ class MainFrame : public wxFrame
 		wxComboBox* m_comboPresets;
 		wxPanel* m_panelList;
 		wxBoxSizer* bSizerList;
+		ItemsList* m_listCtrlItems;
+		wxMenu* m_menuListItems;
 		wxPanel* m_panelProgress;
 		wxGauge* m_gaugeProgress;
 		wxButton* m_buttonStop;
@@ -134,6 +138,11 @@ class MainFrame : public wxFrame
 		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("BatchEncoder"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,580 ), long style = wxDEFAULT_FRAME_STYLE|wxRESIZE_BORDER|wxTAB_TRAVERSAL );
 		
 		~MainFrame();
+		
+		void m_listCtrlItemsOnContextMenu( wxMouseEvent &event )
+		{
+			m_listCtrlItems->PopupMenu( m_menuListItems, event.GetPosition() );
+		}
 	
 };
 
@@ -150,6 +159,8 @@ class PresetsDialog : public wxDialog
 		wxComboBox* m_comboBoxFormats;
 		wxPanel* m_panelList;
 		wxBoxSizer* bSizerList;
+		ItemsList* m_listCtrlItems;
+		wxMenu* m_menuListItems;
 		wxButton* m_buttonDuplicate;
 		wxButton* m_buttonMoveUp;
 		wxButton* m_buttonMoveDown;
@@ -189,6 +200,11 @@ class PresetsDialog : public wxDialog
 		
 		PresetsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Presets"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,580 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~PresetsDialog();
+		
+		void m_listCtrlItemsOnContextMenu( wxMouseEvent &event )
+		{
+			m_listCtrlItems->PopupMenu( m_menuListItems, event.GetPosition() );
+		}
 	
 };
 
@@ -204,6 +220,8 @@ class FormatsDialog : public wxDialog
 		wxPanel* m_panelTop;
 		wxPanel* m_panelList;
 		wxBoxSizer* bSizerList;
+		ItemsList* m_listCtrlItems;
+		wxMenu* m_menuListItems;
 		wxButton* m_buttonDuplicate;
 		wxButton* m_buttonMoveUp;
 		wxButton* m_buttonMoveDown;
@@ -283,6 +301,11 @@ class FormatsDialog : public wxDialog
 		
 		FormatsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Formats"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,580 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~FormatsDialog();
+		
+		void m_listCtrlItemsOnContextMenu( wxMouseEvent &event )
+		{
+			m_listCtrlItems->PopupMenu( m_menuListItems, event.GetPosition() );
+		}
 	
 };
 
@@ -302,6 +325,8 @@ class ToolsDialog : public wxDialog
 		wxButton* m_buttonSetX64Paths;
 		wxPanel* m_panelList;
 		wxBoxSizer* bSizerList;
+		ItemsList* m_listCtrlItems;
+		wxMenu* m_menuListItems;
 		wxButton* m_buttonDuplicate;
 		wxButton* m_buttonMoveUp;
 		wxButton* m_buttonMoveDown;
@@ -364,6 +389,11 @@ class ToolsDialog : public wxDialog
 		
 		ToolsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Tools"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,580 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~ToolsDialog();
+		
+		void m_listCtrlItemsOnContextMenu( wxMouseEvent &event )
+		{
+			m_listCtrlItems->PopupMenu( m_menuListItems, event.GetPosition() );
+		}
 	
 };
 
@@ -379,6 +409,8 @@ class PathsDialog : public wxDialog
 		wxPanel* m_panelTop;
 		wxPanel* m_panelList;
 		wxBoxSizer* bSizerList;
+		ItemsList* m_listCtrlItems;
+		wxMenu* m_menuListItems;
 		wxButton* m_buttonDuplicate;
 		wxButton* m_buttonMoveUp;
 		wxButton* m_buttonMoveDown;
@@ -418,6 +450,11 @@ class PathsDialog : public wxDialog
 		
 		PathsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Edit Paths"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,580 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~PathsDialog();
+		
+		void m_listCtrlItemsOnContextMenu( wxMouseEvent &event )
+		{
+			m_listCtrlItems->PopupMenu( m_menuListItems, event.GetPosition() );
+		}
 	
 };
 

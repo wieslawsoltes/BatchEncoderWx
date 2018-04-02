@@ -294,6 +294,12 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_panelList = new wxPanel( m_panelContent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizerList = new wxBoxSizer( wxVERTICAL );
 	
+	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
+	m_menuListItems = new wxMenu();
+	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( MainFrame::m_listCtrlItemsOnContextMenu ), NULL, this ); 
+	
+	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
+	
 	
 	m_panelList->SetSizer( bSizerList );
 	m_panelList->Layout();
@@ -501,6 +507,7 @@ MainFrame::~MainFrame()
 	m_spinCtrlThreads->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_spinCtrlThreadsOnSpinCtrlText ), NULL, this );
 	m_buttonConvert->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::m_buttonConvertOnButtonClick ), NULL, this );
 	
+	delete m_menuListItems; 
 }
 
 PresetsDialog::PresetsDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -529,6 +536,12 @@ PresetsDialog::PresetsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	
 	m_panelList = new wxPanel( m_panelContent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizerList = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
+	m_menuListItems = new wxMenu();
+	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( PresetsDialog::m_listCtrlItemsOnContextMenu ), NULL, this ); 
+	
+	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
 	
 	wxBoxSizer* bSizerButtons;
 	bSizerButtons = new wxBoxSizer( wxVERTICAL );
@@ -704,6 +717,7 @@ PresetsDialog::~PresetsDialog()
 	m_buttonOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PresetsDialog::m_buttonOKOnButtonClick ), NULL, this );
 	m_buttonCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PresetsDialog::m_buttonCancelOnButtonClick ), NULL, this );
 	
+	delete m_menuListItems; 
 }
 
 FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -731,6 +745,12 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	
 	m_panelList = new wxPanel( m_panelContent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizerList = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
+	m_menuListItems = new wxMenu();
+	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( FormatsDialog::m_listCtrlItemsOnContextMenu ), NULL, this ); 
+	
+	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
 	
 	wxBoxSizer* bSizerButtons;
 	bSizerButtons = new wxBoxSizer( wxVERTICAL );
@@ -1169,6 +1189,7 @@ FormatsDialog::~FormatsDialog()
 	m_buttonOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonOKOnButtonClick ), NULL, this );
 	m_buttonCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonCancelOnButtonClick ), NULL, this );
 	
+	delete m_menuListItems; 
 }
 
 ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -1206,6 +1227,12 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	
 	m_panelList = new wxPanel( m_panelContent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizerList = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
+	m_menuListItems = new wxMenu();
+	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( ToolsDialog::m_listCtrlItemsOnContextMenu ), NULL, this ); 
+	
+	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
 	
 	wxBoxSizer* bSizerButtons;
 	bSizerButtons = new wxBoxSizer( wxVERTICAL );
@@ -1528,6 +1555,7 @@ ToolsDialog::~ToolsDialog()
 	m_buttonOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonOKOnButtonClick ), NULL, this );
 	m_buttonCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonCancelOnButtonClick ), NULL, this );
 	
+	delete m_menuListItems; 
 }
 
 PathsDialog::PathsDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -1555,6 +1583,12 @@ PathsDialog::PathsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	
 	m_panelList = new wxPanel( m_panelContent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizerList = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
+	m_menuListItems = new wxMenu();
+	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( PathsDialog::m_listCtrlItemsOnContextMenu ), NULL, this ); 
+	
+	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
 	
 	wxBoxSizer* bSizerButtons;
 	bSizerButtons = new wxBoxSizer( wxVERTICAL );
@@ -1743,6 +1777,7 @@ PathsDialog::~PathsDialog()
 	m_buttonOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PathsDialog::m_buttonOKOnButtonClick ), NULL, this );
 	m_buttonCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PathsDialog::m_buttonCancelOnButtonClick ), NULL, this );
 	
+	delete m_menuListItems; 
 }
 
 AboutDialog::AboutDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )

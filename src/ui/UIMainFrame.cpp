@@ -5,6 +5,9 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
     :
     MainFrame(parent)
 {
+    this->DragAcceptFiles(true);
+    this->Connect(wxEVT_DROP_FILES, wxDropFilesEventHandler(UIMainFrame::MainFrameOnDropFiles), NULL, this);
+
     m_panelProgress->Hide();
     m_panelBottom->Show();
 
@@ -424,4 +427,29 @@ void UIMainFrame::m_buttonConvertOnButtonClick(wxCommandEvent& event)
     m_panelBottom->Hide();
     m_panelProgress->Show();
     this->GetSizer()->Layout();
+}
+
+void UIMainFrame::MainFrameOnDropFiles(wxDropFilesEvent& event)
+{
+    if (event.GetNumberOfFiles() > 0)
+    {
+        wxString* dropped = event.GetFiles();
+        wxBusyCursor busyCursor;
+        wxWindowDisabler disabler;
+        wxBusyInfo busyInfo(_("Adding files..."), this);
+        wxString name;
+        wxArrayString files;
+        for (int i = 0; i < event.GetNumberOfFiles(); i++)
+        {
+            name = dropped[i];
+            if (wxFileExists(name))
+            {
+                files.push_back(name);
+            }
+            else if (wxDirExists(name))
+            {
+                wxDir::GetAllFiles(name, &files);
+            }
+        }
+    }
 }

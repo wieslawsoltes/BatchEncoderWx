@@ -59,19 +59,29 @@ void UIFormatsDialog::FormatsDialogOnInitDialog(wxInitDialogEvent& event)
     // TODO: Implement FormatsDialogOnInitDialog
 }
 
+void UIFormatsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDuplicateOnMenuSelection
+}
+
+void UIFormatsDialog::m_menuItemItemsDeleteAllOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDeleteAllOnMenuSelection
+}
+
+void UIFormatsDialog::m_menuItemItemsDeleteOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDeleteOnMenuSelection
+}
+
+void UIFormatsDialog::m_menuItemItemsAddOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsAddOnMenuSelection
+}
+
 void UIFormatsDialog::m_buttonDuplicateOnButtonClick(wxCommandEvent& event)
 {
     // TODO: Implement m_buttonDuplicateOnButtonClick
-}
-
-void UIFormatsDialog::m_buttonMoveUpOnButtonClick(wxCommandEvent& event)
-{
-    // TODO: Implement m_buttonMoveUpOnButtonClick
-}
-
-void UIFormatsDialog::m_buttonMoveDownOnButtonClick(wxCommandEvent& event)
-{
-    // TODO: Implement m_buttonMoveDownOnButtonClick
 }
 
 void UIFormatsDialog::m_buttonDeleteAllOnButtonClick(wxCommandEvent& event)

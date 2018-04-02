@@ -79,19 +79,29 @@ void UIToolsDialog::m_buttonSetX64PathsOnButtonClick(wxCommandEvent& event)
     // TODO: Implement m_buttonSetX64PathsOnButtonClick
 }
 
+void UIToolsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDuplicateOnMenuSelection
+}
+
+void UIToolsDialog::m_menuItemItemsDeleteAllOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDeleteAllOnMenuSelection
+}
+
+void UIToolsDialog::m_menuItemItemsDeleteOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDeleteOnMenuSelection
+}
+
+void UIToolsDialog::m_menuItemItemsAddOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsAddOnMenuSelection
+}
+
 void UIToolsDialog::m_buttonDuplicateOnButtonClick(wxCommandEvent& event)
 {
     // TODO: Implement m_buttonDuplicateOnButtonClick
-}
-
-void UIToolsDialog::m_buttonMoveUpOnButtonClick(wxCommandEvent& event)
-{
-    // TODO: Implement m_buttonMoveUpOnButtonClick
-}
-
-void UIToolsDialog::m_buttonMoveDownOnButtonClick(wxCommandEvent& event)
-{
-    // TODO: Implement m_buttonMoveDownOnButtonClick
 }
 
 void UIToolsDialog::m_buttonDeleteAllOnButtonClick(wxCommandEvent& event)

@@ -53,6 +53,36 @@ void UIPathsDialog::PathsDialogOnInitDialog(wxInitDialogEvent& event)
     // TODO: Implement PathsDialogOnInitDialog
 }
 
+void UIPathsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDuplicateOnMenuSelection
+}
+
+void UIPathsDialog::m_menuItemItemsMoveUpOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsMoveUpOnMenuSelection
+}
+
+void UIPathsDialog::m_menuItemItemsMoveDownOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsMoveDownOnMenuSelection
+}
+
+void UIPathsDialog::m_menuItemItemsDeleteAllOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDeleteAllOnMenuSelection
+}
+
+void UIPathsDialog::m_menuItemItemsDeleteOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDeleteOnMenuSelection
+}
+
+void UIPathsDialog::m_menuItemItemsAddOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsAddOnMenuSelection
+}
+
 void UIPathsDialog::m_buttonDuplicateOnButtonClick(wxCommandEvent& event)
 {
     // TODO: Implement m_buttonDuplicateOnButtonClick

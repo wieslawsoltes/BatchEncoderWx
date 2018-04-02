@@ -167,26 +167,6 @@ void UIMainFrame::m_menuItemEditCropOnMenuSelection(wxCommandEvent& event)
     // TODO: Implement m_menuItemEditCropOnMenuSelection
 }
 
-void UIMainFrame::m_menuItemEditRemoveCheckedOnMenuSelection(wxCommandEvent& event)
-{
-    // TODO: Implement m_menuItemEditRemoveCheckedOnMenuSelection
-}
-
-void UIMainFrame::m_menuItemEditRemoveUncheckedOnMenuSelection(wxCommandEvent& event)
-{
-    // TODO: Implement m_menuItemEditRemoveUncheckedOnMenuSelection
-}
-
-void UIMainFrame::m_menuItemEditCheckSelectedOnMenuSelection(wxCommandEvent& event)
-{
-    // TODO: Implement m_menuItemEditCheckSelectedOnMenuSelection
-}
-
-void UIMainFrame::m_menuItemEditUncheckSelectedOnMenuSelection(wxCommandEvent& event)
-{
-    // TODO: Implement m_menuItemEditUncheckSelectedOnMenuSelection
-}
-
 void UIMainFrame::m_menuItemEditSelectAllOnMenuSelection(wxCommandEvent& event)
 {
     // TODO: Implement m_menuItemEditSelectAllOnMenuSelection
@@ -331,6 +311,71 @@ void UIMainFrame::m_comboPresetsOnCombobox(wxCommandEvent& event)
 void UIMainFrame::m_comboPresetsOnText(wxCommandEvent& event)
 {
     // TODO: Implement m_comboPresetsOnText
+}
+
+void UIMainFrame::m_menuItemItemsAddFileOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsAddFileOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsAddDirOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsAddDirOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsRenameOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsRenameOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsEditPathsOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsEditPathsOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsResetTimeOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsResetTimeOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsResetOutputOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsResetOutputOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsRemoveOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsRemoveOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsCropOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsCropOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsSelectAllOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsSelectAllOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsSelectNoneOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsSelectNoneOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsInvertSelectionOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsInvertSelectionOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsOpenFileOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsOpenFileOnMenuSelection
+}
+
+void UIMainFrame::m_menuItemItemsOpenDirOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsOpenDirOnMenuSelection
 }
 
 void UIMainFrame::m_buttonStopOnButtonClick(wxCommandEvent& event)

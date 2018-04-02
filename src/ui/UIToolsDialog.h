@@ -28,9 +28,11 @@ protected:
     void m_buttonSetSelectedPathsOnButtonClick(wxCommandEvent& event);
     void m_buttonSetX86PathsOnButtonClick(wxCommandEvent& event);
     void m_buttonSetX64PathsOnButtonClick(wxCommandEvent& event);
+    void m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsDeleteAllOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsDeleteOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsAddOnMenuSelection(wxCommandEvent& event);
     void m_buttonDuplicateOnButtonClick(wxCommandEvent& event);
-    void m_buttonMoveUpOnButtonClick(wxCommandEvent& event);
-    void m_buttonMoveDownOnButtonClick(wxCommandEvent& event);
     void m_buttonDeleteAllOnButtonClick(wxCommandEvent& event);
     void m_buttonDeleteOnButtonClick(wxCommandEvent& event);
     void m_buttonAddOnButtonClick(wxCommandEvent& event);

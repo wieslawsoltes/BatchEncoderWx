@@ -63,6 +63,36 @@ void UIPresetsDialog::m_comboBoxFormatsOnText(wxCommandEvent& event)
     // TODO: Implement m_comboBoxFormatsOnText
 }
 
+void UIPresetsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDuplicateOnMenuSelection
+}
+
+void UIPresetsDialog::m_menuItemItemsMoveUpOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsMoveUpOnMenuSelection
+}
+
+void UIPresetsDialog::m_menuItemItemsMoveDownOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsMoveDownOnMenuSelection
+}
+
+void UIPresetsDialog::m_menuItemItemsDeleteAllOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDeleteAllOnMenuSelection
+}
+
+void UIPresetsDialog::m_menuItemItemsDeleteOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsDeleteOnMenuSelection
+}
+
+void UIPresetsDialog::m_menuItemItemsAddOnMenuSelection(wxCommandEvent& event)
+{
+    // TODO: Implement m_menuItemItemsAddOnMenuSelection
+}
+
 void UIPresetsDialog::m_buttonDuplicateOnButtonClick(wxCommandEvent& event)
 {
     // TODO: Implement m_buttonDuplicateOnButtonClick

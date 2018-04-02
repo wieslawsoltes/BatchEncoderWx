@@ -23,6 +23,12 @@ class UIPathsDialog : public PathsDialog
 protected:
     // Handlers for PathsDialog events.
     void PathsDialogOnInitDialog(wxInitDialogEvent& event);
+    void m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsMoveUpOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsMoveDownOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsDeleteAllOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsDeleteOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsAddOnMenuSelection(wxCommandEvent& event);
     void m_buttonDuplicateOnButtonClick(wxCommandEvent& event);
     void m_buttonMoveUpOnButtonClick(wxCommandEvent& event);
     void m_buttonMoveDownOnButtonClick(wxCommandEvent& event);

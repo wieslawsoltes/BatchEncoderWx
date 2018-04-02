@@ -83,26 +83,6 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	
 	m_menuEdit->AppendSeparator();
 	
-	wxMenuItem* m_menuItemEditRemoveChecked;
-	m_menuItemEditRemoveChecked = new wxMenuItem( m_menuEdit, wxID_ANY, wxString( _("Remove Chec&ked") ) + wxT('\t') + wxT("Ctrl++"), wxEmptyString, wxITEM_NORMAL );
-	m_menuEdit->Append( m_menuItemEditRemoveChecked );
-	
-	wxMenuItem* m_menuItemEditRemoveUnchecked;
-	m_menuItemEditRemoveUnchecked = new wxMenuItem( m_menuEdit, wxID_ANY, wxString( _("Remove Unc&hecked") ) + wxT('\t') + wxT("Ctrl+-"), wxEmptyString, wxITEM_NORMAL );
-	m_menuEdit->Append( m_menuItemEditRemoveUnchecked );
-	
-	m_menuEdit->AppendSeparator();
-	
-	wxMenuItem* m_menuItemEditCheckSelected;
-	m_menuItemEditCheckSelected = new wxMenuItem( m_menuEdit, wxID_ANY, wxString( _("Check S&elected") ) + wxT('\t') + wxT("Shift++"), wxEmptyString, wxITEM_NORMAL );
-	m_menuEdit->Append( m_menuItemEditCheckSelected );
-	
-	wxMenuItem* m_menuItemEditUncheckSelected;
-	m_menuItemEditUncheckSelected = new wxMenuItem( m_menuEdit, wxID_ANY, wxString( _("&Uncheck Selected") ) + wxT('\t') + wxT("Shift+-"), wxEmptyString, wxITEM_NORMAL );
-	m_menuEdit->Append( m_menuItemEditUncheckSelected );
-	
-	m_menuEdit->AppendSeparator();
-	
 	wxMenuItem* m_menuItemEditSelectAll;
 	m_menuItemEditSelectAll = new wxMenuItem( m_menuEdit, wxID_ANY, wxString( _("&Select All") ) + wxT('\t') + wxT("Ctrl+A"), wxEmptyString, wxITEM_NORMAL );
 	m_menuEdit->Append( m_menuItemEditSelectAll );
@@ -296,6 +276,70 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	
 	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
 	m_menuListItems = new wxMenu();
+	wxMenuItem* m_menuItemItemsAddFile;
+	m_menuItemItemsAddFile = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Add Files...") ) + wxT('\t') + wxT("Ctrl+N"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsAddFile );
+	
+	wxMenuItem* m_menuItemItemsAddDir;
+	m_menuItemItemsAddDir = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Add Dire&ctory...") ) + wxT('\t') + wxT("Ctrl+D"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsAddDir );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsRename;
+	m_menuItemItemsRename = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Rena&me") ) + wxT('\t') + wxT("F2"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsRename );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsEditPaths;
+	m_menuItemItemsEditPaths = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Edi&t Paths") ) + wxT('\t') + wxT("F4"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsEditPaths );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsResetTime;
+	m_menuItemItemsResetTime = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Rese&t Time/Status") ) + wxT('\t') + wxT("Ctrl+,"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsResetTime );
+	
+	wxMenuItem* m_menuItemItemsResetOutput;
+	m_menuItemItemsResetOutput = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Reset Output&/Preset") ) + wxT('\t') + wxT("Ctrl+."), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsResetOutput );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsRemove;
+	m_menuItemItemsRemove = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Remove") ) + wxT('\t') + wxT("DEL"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsRemove );
+	
+	wxMenuItem* m_menuItemItemsCrop;
+	m_menuItemItemsCrop = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Cro&p") ) + wxT('\t') + wxT("INS"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsCrop );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsSelectAll;
+	m_menuItemItemsSelectAll = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Select All") ) + wxT('\t') + wxT("Ctrl+A"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsSelectAll );
+	
+	wxMenuItem* m_menuItemItemsSelectNone;
+	m_menuItemItemsSelectNone = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Select &None") ) + wxT('\t') + wxT("Ctrl+N"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsSelectNone );
+	
+	wxMenuItem* m_menuItemItemsInvertSelection;
+	m_menuItemItemsInvertSelection = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Invert Selection") ) + wxT('\t') + wxT("Ctrl+I"), wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsInvertSelection );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsOpenFile;
+	m_menuItemItemsOpenFile = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Open File...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsOpenFile );
+	
+	wxMenuItem* m_menuItemItemsOpenDir;
+	m_menuItemItemsOpenDir = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Open &Directory...") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsOpenDir );
+	
 	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( MainFrame::m_listCtrlItemsOnContextMenu ), NULL, this ); 
 	
 	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
@@ -411,10 +455,6 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	this->Connect( m_menuItemEditResetOutput->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditResetOutputOnMenuSelection ) );
 	this->Connect( m_menuItemEditRemove->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditRemoveOnMenuSelection ) );
 	this->Connect( m_menuItemEditCrop->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditCropOnMenuSelection ) );
-	this->Connect( m_menuItemEditRemoveChecked->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditRemoveCheckedOnMenuSelection ) );
-	this->Connect( m_menuItemEditRemoveUnchecked->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditRemoveUncheckedOnMenuSelection ) );
-	this->Connect( m_menuItemEditCheckSelected->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditCheckSelectedOnMenuSelection ) );
-	this->Connect( m_menuItemEditUncheckSelected->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditUncheckSelectedOnMenuSelection ) );
 	this->Connect( m_menuItemEditSelectAll->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditSelectAllOnMenuSelection ) );
 	this->Connect( m_menuItemEditSelectNone->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditSelectNoneOnMenuSelection ) );
 	this->Connect( m_menuItemEditInvertSelection->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditInvertSelectionOnMenuSelection ) );
@@ -443,6 +483,19 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_comboBoxFormats->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboBoxFormatsOnText ), NULL, this );
 	m_comboPresets->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::m_comboPresetsOnCombobox ), NULL, this );
 	m_comboPresets->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboPresetsOnText ), NULL, this );
+	this->Connect( m_menuItemItemsAddFile->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsAddFileOnMenuSelection ) );
+	this->Connect( m_menuItemItemsAddDir->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsAddDirOnMenuSelection ) );
+	this->Connect( m_menuItemItemsRename->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsRenameOnMenuSelection ) );
+	this->Connect( m_menuItemItemsEditPaths->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsEditPathsOnMenuSelection ) );
+	this->Connect( m_menuItemItemsResetTime->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsResetTimeOnMenuSelection ) );
+	this->Connect( m_menuItemItemsResetOutput->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsResetOutputOnMenuSelection ) );
+	this->Connect( m_menuItemItemsRemove->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsRemoveOnMenuSelection ) );
+	this->Connect( m_menuItemItemsCrop->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsCropOnMenuSelection ) );
+	this->Connect( m_menuItemItemsSelectAll->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsSelectAllOnMenuSelection ) );
+	this->Connect( m_menuItemItemsSelectNone->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsSelectNoneOnMenuSelection ) );
+	this->Connect( m_menuItemItemsInvertSelection->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsInvertSelectionOnMenuSelection ) );
+	this->Connect( m_menuItemItemsOpenFile->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsOpenFileOnMenuSelection ) );
+	this->Connect( m_menuItemItemsOpenDir->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsOpenDirOnMenuSelection ) );
 	m_buttonStop->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::m_buttonStopOnButtonClick ), NULL, this );
 	m_comboBoxOutput->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::m_comboBoxOutputOnCombobox ), NULL, this );
 	m_comboBoxOutput->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboBoxOutputOnText ), NULL, this );
@@ -467,10 +520,6 @@ MainFrame::~MainFrame()
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditResetOutputOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditRemoveOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditCropOnMenuSelection ) );
-	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditRemoveCheckedOnMenuSelection ) );
-	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditRemoveUncheckedOnMenuSelection ) );
-	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditCheckSelectedOnMenuSelection ) );
-	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditUncheckSelectedOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditSelectAllOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditSelectNoneOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemEditInvertSelectionOnMenuSelection ) );
@@ -499,6 +548,19 @@ MainFrame::~MainFrame()
 	m_comboBoxFormats->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboBoxFormatsOnText ), NULL, this );
 	m_comboPresets->Disconnect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::m_comboPresetsOnCombobox ), NULL, this );
 	m_comboPresets->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboPresetsOnText ), NULL, this );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsAddFileOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsAddDirOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsRenameOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsEditPathsOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsResetTimeOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsResetOutputOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsRemoveOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsCropOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsSelectAllOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsSelectNoneOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsInvertSelectionOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsOpenFileOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsOpenDirOnMenuSelection ) );
 	m_buttonStop->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MainFrame::m_buttonStopOnButtonClick ), NULL, this );
 	m_comboBoxOutput->Disconnect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::m_comboBoxOutputOnCombobox ), NULL, this );
 	m_comboBoxOutput->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboBoxOutputOnText ), NULL, this );
@@ -539,6 +601,38 @@ PresetsDialog::PresetsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	
 	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
 	m_menuListItems = new wxMenu();
+	wxMenuItem* m_menuItemItemsDuplicate;
+	m_menuItemItemsDuplicate = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Du&plicate") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDuplicate );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsMoveUp;
+	m_menuItemItemsMoveUp = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("move &Up") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsMoveUp );
+	
+	wxMenuItem* m_menuItemItemsMoveDown;
+	m_menuItemItemsMoveDown = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("move Dow&n") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsMoveDown );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsDeleteAll;
+	m_menuItemItemsDeleteAll = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Dele&te All") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDeleteAll );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsDelete;
+	m_menuItemItemsDelete = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Delete") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDelete );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsAdd;
+	m_menuItemItemsAdd = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Add") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsAdd );
+	
 	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( PresetsDialog::m_listCtrlItemsOnContextMenu ), NULL, this ); 
 	
 	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
@@ -684,6 +778,12 @@ PresetsDialog::PresetsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( PresetsDialog::PresetsDialogOnInitDialog ) );
 	m_comboBoxFormats->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( PresetsDialog::m_comboBoxFormatsOnCombobox ), NULL, this );
 	m_comboBoxFormats->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( PresetsDialog::m_comboBoxFormatsOnText ), NULL, this );
+	this->Connect( m_menuItemItemsDuplicate->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
+	this->Connect( m_menuItemItemsMoveUp->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsMoveUpOnMenuSelection ) );
+	this->Connect( m_menuItemItemsMoveDown->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsMoveDownOnMenuSelection ) );
+	this->Connect( m_menuItemItemsDeleteAll->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
+	this->Connect( m_menuItemItemsDelete->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
+	this->Connect( m_menuItemItemsAdd->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsAddOnMenuSelection ) );
 	m_buttonDuplicate->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PresetsDialog::m_buttonDuplicateOnButtonClick ), NULL, this );
 	m_buttonMoveUp->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PresetsDialog::m_buttonMoveUpOnButtonClick ), NULL, this );
 	m_buttonMoveDown->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PresetsDialog::m_buttonMoveDownOnButtonClick ), NULL, this );
@@ -704,6 +804,12 @@ PresetsDialog::~PresetsDialog()
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( PresetsDialog::PresetsDialogOnInitDialog ) );
 	m_comboBoxFormats->Disconnect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( PresetsDialog::m_comboBoxFormatsOnCombobox ), NULL, this );
 	m_comboBoxFormats->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( PresetsDialog::m_comboBoxFormatsOnText ), NULL, this );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsMoveUpOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsMoveDownOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsAddOnMenuSelection ) );
 	m_buttonDuplicate->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PresetsDialog::m_buttonDuplicateOnButtonClick ), NULL, this );
 	m_buttonMoveUp->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PresetsDialog::m_buttonMoveUpOnButtonClick ), NULL, this );
 	m_buttonMoveDown->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PresetsDialog::m_buttonMoveDownOnButtonClick ), NULL, this );
@@ -746,8 +852,30 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	m_panelList = new wxPanel( m_panelContent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizerList = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
+	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_NO_SORT_HEADER|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
 	m_menuListItems = new wxMenu();
+	wxMenuItem* m_menuItemItemsDuplicate;
+	m_menuItemItemsDuplicate = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Du&plicate") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDuplicate );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsDeleteAll;
+	m_menuItemItemsDeleteAll = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Dele&te All") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDeleteAll );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsDelete;
+	m_menuItemItemsDelete = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Delete") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDelete );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsAdd;
+	m_menuItemItemsAdd = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Add") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsAdd );
+	
 	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( FormatsDialog::m_listCtrlItemsOnContextMenu ), NULL, this ); 
 	
 	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
@@ -760,16 +888,6 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	
 	m_buttonDuplicate = new wxButton( m_panelList, wxID_ANY, _("Du&plicate"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizerButtonsTop->Add( m_buttonDuplicate, 0, wxALL, 2 );
-	
-	m_buttonMoveUp = new wxButton( m_panelList, wxID_ANY, _("move &Up"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_buttonMoveUp->Hide();
-	
-	bSizerButtonsTop->Add( m_buttonMoveUp, 0, wxALL, 2 );
-	
-	m_buttonMoveDown = new wxButton( m_panelList, wxID_ANY, _("move Dow&n"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_buttonMoveDown->Hide();
-	
-	bSizerButtonsTop->Add( m_buttonMoveDown, 0, wxALL, 2 );
 	
 	
 	bSizerButtons->Add( bSizerButtonsTop, 0, wxEXPAND, 5 );
@@ -1124,9 +1242,11 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	
 	// Connect Events
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( FormatsDialog::FormatsDialogOnInitDialog ) );
+	this->Connect( m_menuItemItemsDuplicate->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
+	this->Connect( m_menuItemItemsDeleteAll->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
+	this->Connect( m_menuItemItemsDelete->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
+	this->Connect( m_menuItemItemsAdd->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsAddOnMenuSelection ) );
 	m_buttonDuplicate->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonDuplicateOnButtonClick ), NULL, this );
-	m_buttonMoveUp->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonMoveUpOnButtonClick ), NULL, this );
-	m_buttonMoveDown->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonMoveDownOnButtonClick ), NULL, this );
 	m_buttonDeleteAll->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonDeleteAllOnButtonClick ), NULL, this );
 	m_buttonDelete->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonDeleteOnButtonClick ), NULL, this );
 	m_buttonAdd->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonAddOnButtonClick ), NULL, this );
@@ -1159,9 +1279,11 @@ FormatsDialog::~FormatsDialog()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( FormatsDialog::FormatsDialogOnInitDialog ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsAddOnMenuSelection ) );
 	m_buttonDuplicate->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonDuplicateOnButtonClick ), NULL, this );
-	m_buttonMoveUp->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonMoveUpOnButtonClick ), NULL, this );
-	m_buttonMoveDown->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonMoveDownOnButtonClick ), NULL, this );
 	m_buttonDeleteAll->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonDeleteAllOnButtonClick ), NULL, this );
 	m_buttonDelete->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonDeleteOnButtonClick ), NULL, this );
 	m_buttonAdd->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( FormatsDialog::m_buttonAddOnButtonClick ), NULL, this );
@@ -1228,8 +1350,30 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	m_panelList = new wxPanel( m_panelContent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	bSizerList = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
+	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_NO_SORT_HEADER|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
 	m_menuListItems = new wxMenu();
+	wxMenuItem* m_menuItemItemsDuplicate;
+	m_menuItemItemsDuplicate = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Du&plicate") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDuplicate );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsDeleteAll;
+	m_menuItemItemsDeleteAll = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Dele&te All") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDeleteAll );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsDelete;
+	m_menuItemItemsDelete = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Delete") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDelete );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsAdd;
+	m_menuItemItemsAdd = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Add") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsAdd );
+	
 	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( ToolsDialog::m_listCtrlItemsOnContextMenu ), NULL, this ); 
 	
 	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
@@ -1242,16 +1386,6 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	
 	m_buttonDuplicate = new wxButton( m_panelList, wxID_ANY, _("Du&plicate"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizerButtonsTop->Add( m_buttonDuplicate, 0, wxALL, 2 );
-	
-	m_buttonMoveUp = new wxButton( m_panelList, wxID_ANY, _("move &Up"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_buttonMoveUp->Hide();
-	
-	bSizerButtonsTop->Add( m_buttonMoveUp, 0, wxALL, 2 );
-	
-	m_buttonMoveDown = new wxButton( m_panelList, wxID_ANY, _("move Dow&n"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_buttonMoveDown->Hide();
-	
-	bSizerButtonsTop->Add( m_buttonMoveDown, 0, wxALL, 2 );
 	
 	
 	bSizerButtons->Add( bSizerButtonsTop, 0, wxEXPAND, 5 );
@@ -1504,9 +1638,11 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	m_buttonSetSelectedPaths->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetSelectedPathsOnButtonClick ), NULL, this );
 	m_buttonSetX86Paths->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetX86PathsOnButtonClick ), NULL, this );
 	m_buttonSetX64Paths->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetX64PathsOnButtonClick ), NULL, this );
+	this->Connect( m_menuItemItemsDuplicate->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
+	this->Connect( m_menuItemItemsDeleteAll->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
+	this->Connect( m_menuItemItemsDelete->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
+	this->Connect( m_menuItemItemsAdd->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsAddOnMenuSelection ) );
 	m_buttonDuplicate->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonDuplicateOnButtonClick ), NULL, this );
-	m_buttonMoveUp->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonMoveUpOnButtonClick ), NULL, this );
-	m_buttonMoveDown->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonMoveDownOnButtonClick ), NULL, this );
 	m_buttonDeleteAll->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonDeleteAllOnButtonClick ), NULL, this );
 	m_buttonDelete->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonDeleteOnButtonClick ), NULL, this );
 	m_buttonAdd->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonAddOnButtonClick ), NULL, this );
@@ -1534,9 +1670,11 @@ ToolsDialog::~ToolsDialog()
 	m_buttonSetSelectedPaths->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetSelectedPathsOnButtonClick ), NULL, this );
 	m_buttonSetX86Paths->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetX86PathsOnButtonClick ), NULL, this );
 	m_buttonSetX64Paths->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetX64PathsOnButtonClick ), NULL, this );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsAddOnMenuSelection ) );
 	m_buttonDuplicate->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonDuplicateOnButtonClick ), NULL, this );
-	m_buttonMoveUp->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonMoveUpOnButtonClick ), NULL, this );
-	m_buttonMoveDown->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonMoveDownOnButtonClick ), NULL, this );
 	m_buttonDeleteAll->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonDeleteAllOnButtonClick ), NULL, this );
 	m_buttonDelete->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonDeleteOnButtonClick ), NULL, this );
 	m_buttonAdd->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonAddOnButtonClick ), NULL, this );
@@ -1586,6 +1724,38 @@ PathsDialog::PathsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	
 	m_listCtrlItems = new ItemsList( m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS|wxLC_HRULES|wxLC_REPORT|wxLC_VIRTUAL|wxLC_VRULES );
 	m_menuListItems = new wxMenu();
+	wxMenuItem* m_menuItemItemsDuplicate;
+	m_menuItemItemsDuplicate = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Du&plicate") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDuplicate );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsMoveUp;
+	m_menuItemItemsMoveUp = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("move &Up") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsMoveUp );
+	
+	wxMenuItem* m_menuItemItemsMoveDown;
+	m_menuItemItemsMoveDown = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("move Dow&n") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsMoveDown );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsDeleteAll;
+	m_menuItemItemsDeleteAll = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("Dele&te All") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDeleteAll );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsDelete;
+	m_menuItemItemsDelete = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Delete") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsDelete );
+	
+	m_menuListItems->AppendSeparator();
+	
+	wxMenuItem* m_menuItemItemsAdd;
+	m_menuItemItemsAdd = new wxMenuItem( m_menuListItems, wxID_ANY, wxString( _("&Add") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuListItems->Append( m_menuItemItemsAdd );
+	
 	m_listCtrlItems->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( PathsDialog::m_listCtrlItemsOnContextMenu ), NULL, this ); 
 	
 	bSizerList->Add( m_listCtrlItems, 1, wxALL|wxEXPAND, 2 );
@@ -1744,6 +1914,12 @@ PathsDialog::PathsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	
 	// Connect Events
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( PathsDialog::PathsDialogOnInitDialog ) );
+	this->Connect( m_menuItemItemsDuplicate->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
+	this->Connect( m_menuItemItemsMoveUp->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsMoveUpOnMenuSelection ) );
+	this->Connect( m_menuItemItemsMoveDown->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsMoveDownOnMenuSelection ) );
+	this->Connect( m_menuItemItemsDeleteAll->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
+	this->Connect( m_menuItemItemsDelete->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
+	this->Connect( m_menuItemItemsAdd->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsAddOnMenuSelection ) );
 	m_buttonDuplicate->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PathsDialog::m_buttonDuplicateOnButtonClick ), NULL, this );
 	m_buttonMoveUp->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PathsDialog::m_buttonMoveUpOnButtonClick ), NULL, this );
 	m_buttonMoveDown->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PathsDialog::m_buttonMoveDownOnButtonClick ), NULL, this );
@@ -1763,6 +1939,12 @@ PathsDialog::~PathsDialog()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( PathsDialog::PathsDialogOnInitDialog ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsMoveUpOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsMoveDownOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsAddOnMenuSelection ) );
 	m_buttonDuplicate->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PathsDialog::m_buttonDuplicateOnButtonClick ), NULL, this );
 	m_buttonMoveUp->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PathsDialog::m_buttonMoveUpOnButtonClick ), NULL, this );
 	m_buttonMoveDown->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PathsDialog::m_buttonMoveDownOnButtonClick ), NULL, this );

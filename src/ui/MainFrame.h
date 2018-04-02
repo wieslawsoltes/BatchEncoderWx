@@ -92,10 +92,6 @@ class MainFrame : public wxFrame
 		virtual void m_menuItemEditResetOutputOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemEditRemoveOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemEditCropOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
-		virtual void m_menuItemEditRemoveCheckedOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
-		virtual void m_menuItemEditRemoveUncheckedOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
-		virtual void m_menuItemEditCheckSelectedOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
-		virtual void m_menuItemEditUncheckSelectedOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemEditSelectAllOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemEditSelectNoneOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemEditInvertSelectionOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
@@ -124,6 +120,19 @@ class MainFrame : public wxFrame
 		virtual void m_comboBoxFormatsOnText( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_comboPresetsOnCombobox( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_comboPresetsOnText( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsAddFileOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsAddDirOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsRenameOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsEditPathsOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsResetTimeOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsResetOutputOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsRemoveOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsCropOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsSelectAllOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsSelectNoneOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsInvertSelectionOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsOpenFileOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsOpenDirOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonStopOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_comboBoxOutputOnCombobox( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_comboBoxOutputOnText( wxCommandEvent& event ) { event.Skip(); }
@@ -182,6 +191,12 @@ class PresetsDialog : public wxDialog
 		virtual void PresetsDialogOnInitDialog( wxInitDialogEvent& event ) { event.Skip(); }
 		virtual void m_comboBoxFormatsOnCombobox( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_comboBoxFormatsOnText( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDuplicateOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsMoveUpOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsMoveDownOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDeleteAllOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDeleteOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsAddOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonDuplicateOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonMoveUpOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonMoveDownOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
@@ -223,8 +238,6 @@ class FormatsDialog : public wxDialog
 		ItemsList* m_listCtrlItems;
 		wxMenu* m_menuListItems;
 		wxButton* m_buttonDuplicate;
-		wxButton* m_buttonMoveUp;
-		wxButton* m_buttonMoveDown;
 		wxButton* m_buttonDeleteAll;
 		wxButton* m_buttonDelete;
 		wxButton* m_buttonAdd;
@@ -266,9 +279,11 @@ class FormatsDialog : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void FormatsDialogOnInitDialog( wxInitDialogEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDuplicateOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDeleteAllOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDeleteOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsAddOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonDuplicateOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void m_buttonMoveUpOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void m_buttonMoveDownOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonDeleteAllOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonDeleteOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonAddOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
@@ -328,8 +343,6 @@ class ToolsDialog : public wxDialog
 		ItemsList* m_listCtrlItems;
 		wxMenu* m_menuListItems;
 		wxButton* m_buttonDuplicate;
-		wxButton* m_buttonMoveUp;
-		wxButton* m_buttonMoveDown;
 		wxButton* m_buttonDeleteAll;
 		wxButton* m_buttonDelete;
 		wxButton* m_buttonAdd;
@@ -363,9 +376,11 @@ class ToolsDialog : public wxDialog
 		virtual void m_buttonSetSelectedPathsOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonSetX86PathsOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonSetX64PathsOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDuplicateOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDeleteAllOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDeleteOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsAddOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonDuplicateOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void m_buttonMoveUpOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void m_buttonMoveDownOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonDeleteAllOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonDeleteOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonAddOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
@@ -431,6 +446,12 @@ class PathsDialog : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void PathsDialogOnInitDialog( wxInitDialogEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDuplicateOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsMoveUpOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsMoveDownOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDeleteAllOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsDeleteOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_menuItemItemsAddOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonDuplicateOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonMoveUpOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonMoveDownOnButtonClick( wxCommandEvent& event ) { event.Skip(); }

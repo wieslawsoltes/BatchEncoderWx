@@ -24,9 +24,11 @@ class UIFormatsDialog : public FormatsDialog
 protected:
     // Handlers for FormatsDialog events.
     void FormatsDialogOnInitDialog(wxInitDialogEvent& event);
+    void m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsDeleteAllOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsDeleteOnMenuSelection(wxCommandEvent& event);
+    void m_menuItemItemsAddOnMenuSelection(wxCommandEvent& event);
     void m_buttonDuplicateOnButtonClick(wxCommandEvent& event);
-    void m_buttonMoveUpOnButtonClick(wxCommandEvent& event);
-    void m_buttonMoveDownOnButtonClick(wxCommandEvent& event);
     void m_buttonDeleteAllOnButtonClick(wxCommandEvent& event);
     void m_buttonDeleteOnButtonClick(wxCommandEvent& event);
     void m_buttonAddOnButtonClick(wxCommandEvent& event);

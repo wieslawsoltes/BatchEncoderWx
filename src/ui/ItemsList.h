@@ -17,7 +17,7 @@ class ItemsList : public wxListCtrl
 {
 public:
     std::function<std::wstring(int, int)> GetText = nullptr;
-    std::function<void(int, int, const wchar_t* text)> SetText = nullptr;
+    std::function<void(int, int, wxString&)> SetText = nullptr;
 public:
     ItemsList(wxWindow *parent,
         wxWindowID id = wxID_ANY,

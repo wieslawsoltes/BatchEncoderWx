@@ -5,6 +5,10 @@ UIToolsDialog::UIToolsDialog(wxWindow* parent)
     :
     ToolsDialog(parent)
 {
+}
+
+void UIToolsDialog::ToolsDialogOnInitDialog(wxInitDialogEvent& event)
+{
     this->Bind(wxEVT_CHAR_HOOK, &UIToolsDialog::OnCharHook, this);
 
     for (int i = 0; i < 100; i++)
@@ -39,7 +43,7 @@ UIToolsDialog::UIToolsDialog(wxWindow* parent)
         return L"??";
     };
 
-    m_listCtrlItems->SetText = [&](int nItem, int nColumn, const wchar_t* value)->void
+    m_listCtrlItems->SetText = [&](int nItem, int nColumn, wxString& text)->void
     {
         auto& item = m_Items[nItem];
         switch (nColumn)
@@ -54,11 +58,6 @@ UIToolsDialog::UIToolsDialog(wxWindow* parent)
     m_listCtrlItems->SetItemCount(m_Items.size());
 
     m_listCtrlItems->SetFocus();
-}
-
-void UIToolsDialog::ToolsDialogOnInitDialog(wxInitDialogEvent& event)
-{
-    // TODO: Implement ToolsDialogOnInitDialog
 }
 
 void UIToolsDialog::m_buttonDownloadSelectedOnButtonClick(wxCommandEvent& event)

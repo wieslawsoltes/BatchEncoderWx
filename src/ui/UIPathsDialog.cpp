@@ -5,6 +5,10 @@ UIPathsDialog::UIPathsDialog(wxWindow* parent)
     :
     PathsDialog(parent)
 {
+}
+
+void UIPathsDialog::PathsDialogOnInitDialog(wxInitDialogEvent& event)
+{
     this->Bind(wxEVT_CHAR_HOOK, &UIPathsDialog::OnCharHook, this);
 
     for (int i = 0; i < 100; i++)
@@ -35,7 +39,7 @@ UIPathsDialog::UIPathsDialog(wxWindow* parent)
         return L"??";
     };
 
-    m_listCtrlItems->SetText = [&](int nItem, int nColumn, const wchar_t* value)->void
+    m_listCtrlItems->SetText = [&](int nItem, int nColumn, wxString& text)->void
     {
         auto& item = m_Items[nItem];
         switch (nColumn)
@@ -48,11 +52,6 @@ UIPathsDialog::UIPathsDialog(wxWindow* parent)
     m_listCtrlItems->SetItemCount(m_Items.size());
 
     m_listCtrlItems->SetFocus();
-}
-
-void UIPathsDialog::PathsDialogOnInitDialog(wxInitDialogEvent& event)
-{
-    // TODO: Implement PathsDialogOnInitDialog
 }
 
 void UIPathsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)

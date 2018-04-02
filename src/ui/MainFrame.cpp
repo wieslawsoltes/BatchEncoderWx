@@ -700,6 +700,8 @@ PresetsDialog::PresetsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyName->Add( m_staticTextPropertyName, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyName = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyName->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyName ) );
+	
 	bSizerPropertyName->Add( m_textCtrlPropertyName, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -713,6 +715,8 @@ PresetsDialog::PresetsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyOptions->Add( m_staticTextPropertyOptions, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyOptions = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyOptions->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyOptions ) );
+	
 	bSizerPropertyOptions->Add( m_textCtrlPropertyOptions, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -781,6 +785,7 @@ PresetsDialog::PresetsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( PresetsDialog::PresetsDialogOnInitDialog ) );
 	m_comboBoxFormats->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( PresetsDialog::m_comboBoxFormatsOnCombobox ), NULL, this );
 	m_comboBoxFormats->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( PresetsDialog::m_comboBoxFormatsOnText ), NULL, this );
+	m_listCtrlItems->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( PresetsDialog::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Connect( m_menuItemItemsDuplicate->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
 	this->Connect( m_menuItemItemsMoveUp->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsMoveUpOnMenuSelection ) );
 	this->Connect( m_menuItemItemsMoveDown->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsMoveDownOnMenuSelection ) );
@@ -807,6 +812,7 @@ PresetsDialog::~PresetsDialog()
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( PresetsDialog::PresetsDialogOnInitDialog ) );
 	m_comboBoxFormats->Disconnect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( PresetsDialog::m_comboBoxFormatsOnCombobox ), NULL, this );
 	m_comboBoxFormats->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( PresetsDialog::m_comboBoxFormatsOnText ), NULL, this );
+	m_listCtrlItems->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( PresetsDialog::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsMoveUpOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PresetsDialog::m_menuItemItemsMoveDownOnMenuSelection ) );

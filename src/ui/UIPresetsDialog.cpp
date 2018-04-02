@@ -5,13 +5,23 @@ UIPresetsDialog::UIPresetsDialog(wxWindow* parent)
     :
     PresetsDialog(parent)
 {
+}
+
+void UIPresetsDialog::PresetsDialogOnInitDialog(wxInitDialogEvent& event)
+{
     this->Bind(wxEVT_CHAR_HOOK, &UIPresetsDialog::OnCharHook, this);
 
     for (int i = 0; i < 100; i++)
     {
-        CPreset item;
+        CPreset item
+        {
+            L"TEST",
+            L"TEST"
+        };
         m_Items.emplace_back(std::move(item));
     }
+
+    nCurrentItem = -1;
 
     m_Columns =
     {
@@ -29,30 +39,25 @@ UIPresetsDialog::UIPresetsDialog(wxWindow* parent)
         auto& item = m_Items[nItem];
         switch (nColumn)
         {
-        case 0: return L"TEST0";
-        case 1: return L"TEST1";
+        case 0: return item.szName;
+        case 1: return item.szOptions;
         }
         return L"??";
     };
 
-    m_listCtrlItems->SetText = [&](int nItem, int nColumn, const wchar_t* value)->void
+    m_listCtrlItems->SetText = [&](int nItem, int nColumn, wxString& text)->void
     {
         auto& item = m_Items[nItem];
         switch (nColumn)
         {
-        case 0: break;
-        case 1: break;
+        case 0: item.szName = text; break;
+        case 1: item.szOptions = text; break;
         }
     };
 
     m_listCtrlItems->SetItemCount(m_Items.size());
 
     m_listCtrlItems->SetFocus();
-}
-
-void UIPresetsDialog::PresetsDialogOnInitDialog(wxInitDialogEvent& event)
-{
-    // TODO: Implement PresetsDialogOnInitDialog
 }
 
 void UIPresetsDialog::m_comboBoxFormatsOnCombobox(wxCommandEvent& event)
@@ -63,6 +68,38 @@ void UIPresetsDialog::m_comboBoxFormatsOnCombobox(wxCommandEvent& event)
 void UIPresetsDialog::m_comboBoxFormatsOnText(wxCommandEvent& event)
 {
     // TODO: Implement m_comboBoxFormatsOnText
+}
+
+void UIPresetsDialog::m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event)
+{
+    if (m_listCtrlItems->GetSelectedItemCount() > 0)
+    {
+        int nSelected = m_listCtrlItems->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+        if (nSelected >= 0 && nCurrentItem != nSelected)
+        {
+            auto& item = m_Items[nSelected];
+            m_PropertyName = item.szName;
+            m_PropertyOptions = item.szOptions;
+            nCurrentItem = nSelected;
+            bTransfer = true;
+            this->TransferDataToWindow();
+            bTransfer = false;
+            wxLogDebug(L"Set Properties");
+        }
+    }
+    else
+    {
+        if (nCurrentItem != -1)
+        {
+            m_PropertyName = L"";
+            m_PropertyOptions = L"";
+            nCurrentItem = -1;
+            bTransfer = true;
+            this->TransferDataToWindow();
+            bTransfer = false;
+            wxLogDebug(L"Reset Properties");
+        }
+    }
 }
 
 void UIPresetsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)
@@ -127,12 +164,16 @@ void UIPresetsDialog::m_buttonAddOnButtonClick(wxCommandEvent& event)
 
 void UIPresetsDialog::m_textCtrlPropertyNameOnText(wxCommandEvent& event)
 {
-    // TODO: Implement m_textCtrlPropertyNameOnText
+    UpdateProperty<CPreset, wxString>(
+        [](CPreset& item, wxString& text) { item.szName = text; },
+        m_PropertyName);
 }
 
 void UIPresetsDialog::m_textCtrlPropertyOptionsOnText(wxCommandEvent& event)
 {
-    // TODO: Implement m_textCtrlPropertyOptionsOnText
+    UpdateProperty<CPreset, wxString>(
+        [](CPreset& item, wxString& text) { item.szOptions = text; },
+        m_PropertyOptions);
 }
 
 void UIPresetsDialog::m_buttonImportOnButtonClick(wxCommandEvent& event)
@@ -183,4 +224,23 @@ void UIPresetsDialog::OnCharHook(wxKeyEvent& event)
         EndModal(wxID_OK);
     else
         event.Skip();
+}
+
+template<typename T, typename U>
+void UIPresetsDialog::UpdateProperty(std::function<void(T&, U&)> setter, U& property)
+{
+    if (bTransfer == false)
+    {
+        bTransfer = true;
+        int nSelected = m_listCtrlItems->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+        if (nSelected >= 0)
+        {
+            auto& item = m_Items[nSelected];
+            this->TransferDataFromWindow();
+            setter(item, property);
+            this->m_listCtrlItems->RefreshItem(nSelected);
+            wxLogDebug(L"Update Property");
+        }
+        bTransfer = false;
+    }
 }

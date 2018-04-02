@@ -5,18 +5,19 @@ UIAboutDialog::UIAboutDialog(wxWindow* parent)
     :
     AboutDialog(parent)
 {
-    this->Bind(wxEVT_CHAR_HOOK, &UIAboutDialog::OnCharHook, this);
-
-    m_buttonOK->SetFocus();
 }
 
 void UIAboutDialog::AboutDialogOnInitDialog(wxInitDialogEvent& event)
 {
+    this->Bind(wxEVT_CHAR_HOOK, &UIAboutDialog::OnCharHook, this);
+
     m_hyperlinkApplicationWebsite->SetLabel(L"https://github.com/wieslawsoltes/BatchEncoder");
     m_hyperlinkApplicationWebsite->SetURL(L"https://github.com/wieslawsoltes/BatchEncoder");
 
     m_hyperlinkApplicationEmail->SetLabel(L"wieslaw.soltes@gmail.com");
     m_hyperlinkApplicationEmail->SetURL(L"mailto:wieslaw.soltes@gmail.com");
+
+    m_buttonOK->SetFocus();
 }
 
 void UIAboutDialog::m_hyperlinkApplicationWebsiteOnHyperlink(wxHyperlinkEvent& event)

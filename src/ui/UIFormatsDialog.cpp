@@ -5,6 +5,10 @@ UIFormatsDialog::UIFormatsDialog(wxWindow* parent)
     :
     FormatsDialog(parent)
 {
+}
+
+void UIFormatsDialog::FormatsDialogOnInitDialog(wxInitDialogEvent& event)
+{
     this->Bind(wxEVT_CHAR_HOOK, &UIFormatsDialog::OnCharHook, this);
 
     for (int i = 0; i < 100; i++)
@@ -39,7 +43,7 @@ UIFormatsDialog::UIFormatsDialog(wxWindow* parent)
         return L"??";
     };
 
-    m_listCtrlItems->SetText = [&](int nItem, int nColumn, const wchar_t* value)->void
+    m_listCtrlItems->SetText = [&](int nItem, int nColumn, wxString& text)->void
     {
         auto& item = m_Items[nItem];
         switch (nColumn)
@@ -54,11 +58,6 @@ UIFormatsDialog::UIFormatsDialog(wxWindow* parent)
     m_listCtrlItems->SetItemCount(m_Items.size());
 
     m_listCtrlItems->SetFocus();
-}
-
-void UIFormatsDialog::FormatsDialogOnInitDialog(wxInitDialogEvent& event)
-{
-    // TODO: Implement FormatsDialogOnInitDialog
 }
 
 void UIFormatsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)

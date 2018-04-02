@@ -1,0 +1,9 @@
+version: '{build}'
+image: Visual Studio 2017
+before_build:
+- git submodule update --init --recursive
+build_script:
+- ps: .\build.ps1 -Target "Build"
+test: off
+artifacts:
+- path: src\bin\Release\Win32\*.exe

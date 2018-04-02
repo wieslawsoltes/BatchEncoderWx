@@ -415,7 +415,6 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	bSizerBottom->Add( 4, 0, 0, wxEXPAND, 5 );
 	
 	m_buttonConvert = new wxButton( m_panelBottom, wxID_ANY, _("Conve&rt"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_buttonConvert->SetDefault(); 
 	m_buttonConvert->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 	
 	bSizerBottom->Add( m_buttonConvert, 0, wxALIGN_CENTER|wxALL, 0 );

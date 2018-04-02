@@ -72,6 +72,7 @@ protected:
     void m_comboBoxFormatsOnText(wxCommandEvent& event);
     void m_comboPresetsOnCombobox(wxCommandEvent& event);
     void m_comboPresetsOnText(wxCommandEvent& event);
+    void m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event);
     void m_menuItemItemsAddFileOnMenuSelection(wxCommandEvent& event);
     void m_menuItemItemsAddDirOnMenuSelection(wxCommandEvent& event);
     void m_menuItemItemsRenameOnMenuSelection(wxCommandEvent& event);

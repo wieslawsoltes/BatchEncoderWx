@@ -80,6 +80,11 @@ void UIToolsDialog::m_buttonSetX64PathsOnButtonClick(wxCommandEvent& event)
     // TODO: Implement m_buttonSetX64PathsOnButtonClick
 }
 
+void UIToolsDialog::m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event)
+{
+    // TODO: Implement m_listCtrlItemsOnUpdateUI
+}
+
 void UIToolsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)
 {
     // TODO: Implement m_menuItemItemsDuplicateOnMenuSelection

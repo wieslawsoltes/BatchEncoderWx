@@ -24,6 +24,7 @@ class UIFormatsDialog : public FormatsDialog
 protected:
     // Handlers for FormatsDialog events.
     void FormatsDialogOnInitDialog(wxInitDialogEvent& event);
+    void m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event);
     void m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event);
     void m_menuItemItemsDeleteAllOnMenuSelection(wxCommandEvent& event);
     void m_menuItemItemsDeleteOnMenuSelection(wxCommandEvent& event);

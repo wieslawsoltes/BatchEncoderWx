@@ -316,6 +316,11 @@ void UIMainFrame::m_comboPresetsOnText(wxCommandEvent& event)
     // TODO: Implement m_comboPresetsOnText
 }
 
+void UIMainFrame::m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event)
+{
+    // TODO: Implement m_listCtrlItemsOnUpdateUI
+}
+
 void UIMainFrame::m_menuItemItemsAddFileOnMenuSelection(wxCommandEvent& event)
 {
     // TODO: Implement m_menuItemItemsAddFileOnMenuSelection

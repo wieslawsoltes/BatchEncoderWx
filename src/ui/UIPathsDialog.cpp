@@ -54,6 +54,11 @@ void UIPathsDialog::PathsDialogOnInitDialog(wxInitDialogEvent& event)
     m_listCtrlItems->SetFocus();
 }
 
+void UIPathsDialog::m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event)
+{
+    // TODO: Implement m_listCtrlItemsOnUpdateUI
+}
+
 void UIPathsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)
 {
     // TODO: Implement m_menuItemItemsDuplicateOnMenuSelection

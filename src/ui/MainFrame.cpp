@@ -482,6 +482,7 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 	m_comboBoxFormats->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboBoxFormatsOnText ), NULL, this );
 	m_comboPresets->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::m_comboPresetsOnCombobox ), NULL, this );
 	m_comboPresets->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboPresetsOnText ), NULL, this );
+	m_listCtrlItems->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( MainFrame::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Connect( m_menuItemItemsAddFile->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsAddFileOnMenuSelection ) );
 	this->Connect( m_menuItemItemsAddDir->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsAddDirOnMenuSelection ) );
 	this->Connect( m_menuItemItemsRename->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsRenameOnMenuSelection ) );
@@ -547,6 +548,7 @@ MainFrame::~MainFrame()
 	m_comboBoxFormats->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboBoxFormatsOnText ), NULL, this );
 	m_comboPresets->Disconnect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( MainFrame::m_comboPresetsOnCombobox ), NULL, this );
 	m_comboPresets->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( MainFrame::m_comboPresetsOnText ), NULL, this );
+	m_listCtrlItems->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( MainFrame::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsAddFileOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsAddDirOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( MainFrame::m_menuItemItemsRenameOnMenuSelection ) );
@@ -946,6 +948,8 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyName->Add( m_staticTextPropertyName, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyName = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyName->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyName ) );
+	
 	bSizerPropertyName->Add( m_textCtrlPropertyName, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -959,6 +963,8 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyId->Add( m_staticTextPropertyId, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyId = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyId->SetValidator( wxGenericValidator( &m_PropertyId ) );
+	
 	bSizerPropertyId->Add( m_textCtrlPropertyId, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -991,6 +997,8 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyInputExtensions->Add( m_staticTextPropertyInputExtensions, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyInputExtensions = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyInputExtensions->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyInputExtensions ) );
+	
 	bSizerPropertyInputExtensions->Add( m_textCtrlPropertyInputExtensions, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1004,6 +1012,8 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyOutputExtension->Add( m_staticTextPropertyOutputExtension, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyOutputExtension = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyOutputExtension->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyOutputExtension ) );
+	
 	bSizerPropertyOutputExtension->Add( m_textCtrlPropertyOutputExtension, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1026,9 +1036,13 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyTypes = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_radioBtnTypeEncoder = new wxRadioButton( m_panelProperties, wxID_ANY, _("Encoder"), wxDefaultPosition, wxDefaultSize, wxRB_GROUP );
+	m_radioBtnTypeEncoder->SetValidator( wxGenericValidator( &m_PropertyTypeEncoder ) );
+	
 	bSizerPropertyTypes->Add( m_radioBtnTypeEncoder, 1, wxALL, 6 );
 	
 	m_radioBtnTypeDecoder = new wxRadioButton( m_panelProperties, wxID_ANY, _("Decoder"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnTypeDecoder->SetValidator( wxGenericValidator( &m_PropertyTypeDecoder ) );
+	
 	bSizerPropertyTypes->Add( m_radioBtnTypeDecoder, 1, wxALL, 6 );
 	
 	
@@ -1045,6 +1059,8 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyExitCodeSuccess->Add( m_staticTextPropertyExitCodeSuccess, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyExitCodeSuccess = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyExitCodeSuccess->SetValidator( wxGenericValidator( &m_PropertyExitCode ) );
+	
 	bSizerPropertyExitCodeSuccess->Add( m_textCtrlPropertyExitCodeSuccess, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1065,6 +1081,8 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	m_comboBoxDefaultPreset->Append( _("2") );
 	m_comboBoxDefaultPreset->Append( _("3") );
 	m_comboBoxDefaultPreset->SetSelection( 0 );
+	m_comboBoxDefaultPreset->SetValidator( wxGenericValidator( &m_PropertyDefaultPreset ) );
+	
 	bSizerPropertyDefaultPresetEdit->Add( m_comboBoxDefaultPreset, 1, wxALL, 2 );
 	
 	
@@ -1099,9 +1117,13 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyPipesType = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_checkBoxPropertyPipeInput = new wxCheckBox( m_panelProperties, wxID_ANY, _("Input"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxPropertyPipeInput->SetValidator( wxGenericValidator( &m_PropertyPipeInput ) );
+	
 	bSizerPropertyPipesType->Add( m_checkBoxPropertyPipeInput, 1, wxALL, 6 );
 	
 	m_checkBoxPropertyPipeOutput = new wxCheckBox( m_panelProperties, wxID_ANY, _("Output"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxPropertyPipeOutput->SetValidator( wxGenericValidator( &m_PropertyPipeOutput ) );
+	
 	bSizerPropertyPipesType->Add( m_checkBoxPropertyPipeOutput, 1, wxALL, 6 );
 	
 	
@@ -1121,6 +1143,8 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyFunctionBrowse = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_textCtrlPropertyFunction = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyFunction->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyFunction ) );
+	
 	bSizerPropertyFunctionBrowse->Add( m_textCtrlPropertyFunction, 1, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1152,6 +1176,8 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyNameTemplate->Add( m_staticTextPropertyTemplate, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyTemplate = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyTemplate->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyTemplate ) );
+	
 	bSizerPropertyNameTemplate->Add( m_textCtrlPropertyTemplate, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1174,6 +1200,8 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	bSizerPropertyPathBrowse = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_textCtrlPropertyPath = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyPath->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyPath ) );
+	
 	bSizerPropertyPathBrowse->Add( m_textCtrlPropertyPath, 1, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1255,6 +1283,7 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	
 	// Connect Events
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( FormatsDialog::FormatsDialogOnInitDialog ) );
+	m_listCtrlItems->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( FormatsDialog::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Connect( m_menuItemItemsDuplicate->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
 	this->Connect( m_menuItemItemsDeleteAll->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
 	this->Connect( m_menuItemItemsDelete->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
@@ -1292,6 +1321,7 @@ FormatsDialog::~FormatsDialog()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( FormatsDialog::FormatsDialogOnInitDialog ) );
+	m_listCtrlItems->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( FormatsDialog::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FormatsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
@@ -1448,6 +1478,8 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	bSizerPropertyName->Add( m_staticTextPropertyName, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyName = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyName->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyName ) );
+	
 	bSizerPropertyName->Add( m_textCtrlPropertyName, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1461,6 +1493,8 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	bSizerPropertyPlatform->Add( m_staticTextPropertyPlatform, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyPlatform = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyPlatform->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyPlatform ) );
+	
 	bSizerPropertyPlatform->Add( m_textCtrlPropertyPlatform, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1496,6 +1530,8 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	bSizerPropertyDefaultPresetEdit = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_textCtrlPropertyFormats = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyFormats->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyFormats ) );
+	
 	bSizerPropertyDefaultPresetEdit->Add( m_textCtrlPropertyFormats, 1, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1527,6 +1563,8 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	bSizerPropertyUrl->Add( m_staticTextPropertyUrl, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyUrl = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyUrl->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyUrl ) );
+	
 	bSizerPropertyUrl->Add( m_textCtrlPropertyUrl, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1546,6 +1584,8 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	bSizerPropertyFile->Add( m_staticTextPropertyFile, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyFile = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyFile->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyFile ) );
+	
 	bSizerPropertyFile->Add( m_textCtrlPropertyFile, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1565,6 +1605,8 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	bSizerPropertyExtract->Add( m_staticTextPropertyExtract, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyExtract = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyExtract->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyExtract ) );
+	
 	bSizerPropertyExtract->Add( m_textCtrlPropertyExtract, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1578,6 +1620,8 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	bSizerPropertyPath->Add( m_staticTextPropertyPath, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyPath = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyPath->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyPath ) );
+	
 	bSizerPropertyPath->Add( m_textCtrlPropertyPath, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1651,6 +1695,7 @@ ToolsDialog::ToolsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	m_buttonSetSelectedPaths->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetSelectedPathsOnButtonClick ), NULL, this );
 	m_buttonSetX86Paths->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetX86PathsOnButtonClick ), NULL, this );
 	m_buttonSetX64Paths->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetX64PathsOnButtonClick ), NULL, this );
+	m_listCtrlItems->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( ToolsDialog::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Connect( m_menuItemItemsDuplicate->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
 	this->Connect( m_menuItemItemsDeleteAll->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
 	this->Connect( m_menuItemItemsDelete->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
@@ -1683,6 +1728,7 @@ ToolsDialog::~ToolsDialog()
 	m_buttonSetSelectedPaths->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetSelectedPathsOnButtonClick ), NULL, this );
 	m_buttonSetX86Paths->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetX86PathsOnButtonClick ), NULL, this );
 	m_buttonSetX64Paths->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ToolsDialog::m_buttonSetX64PathsOnButtonClick ), NULL, this );
+	m_listCtrlItems->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( ToolsDialog::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDeleteAllOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ToolsDialog::m_menuItemItemsDeleteOnMenuSelection ) );
@@ -1833,6 +1879,8 @@ PathsDialog::PathsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	bSizerPropertyPath->Add( m_staticTextPropertyPath, 0, wxALL|wxEXPAND, 2 );
 	
 	m_textCtrlPropertyPath = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertyPath->SetValidator( wxTextValidator( wxFILTER_NONE, &m_PropertyPath ) );
+	
 	bSizerPropertyPath->Add( m_textCtrlPropertyPath, 0, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1849,6 +1897,8 @@ PathsDialog::PathsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	bSizerPropertySizeBrowse = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_textCtrlPropertySize = new wxTextCtrl( m_panelProperties, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	m_textCtrlPropertySize->SetValidator( wxGenericValidator( &m_PropertySize ) );
+	
 	bSizerPropertySizeBrowse->Add( m_textCtrlPropertySize, 1, wxALL|wxEXPAND, 2 );
 	
 	
@@ -1927,6 +1977,7 @@ PathsDialog::PathsDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	
 	// Connect Events
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( PathsDialog::PathsDialogOnInitDialog ) );
+	m_listCtrlItems->Connect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( PathsDialog::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Connect( m_menuItemItemsDuplicate->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
 	this->Connect( m_menuItemItemsMoveUp->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsMoveUpOnMenuSelection ) );
 	this->Connect( m_menuItemItemsMoveDown->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsMoveDownOnMenuSelection ) );
@@ -1952,6 +2003,7 @@ PathsDialog::~PathsDialog()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( PathsDialog::PathsDialogOnInitDialog ) );
+	m_listCtrlItems->Disconnect( wxEVT_UPDATE_UI, wxUpdateUIEventHandler( PathsDialog::m_listCtrlItemsOnUpdateUI ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsDuplicateOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsMoveUpOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( PathsDialog::m_menuItemItemsMoveDownOnMenuSelection ) );

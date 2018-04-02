@@ -35,6 +35,7 @@
 #include <wx/textctrl.h>
 #include <wx/valtext.h>
 #include <wx/dialog.h>
+#include <wx/valgen.h>
 #include <wx/radiobut.h>
 #include <wx/checkbox.h>
 #include <wx/hyperlink.h>
@@ -121,6 +122,7 @@ class MainFrame : public wxFrame
 		virtual void m_comboBoxFormatsOnText( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_comboPresetsOnCombobox( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_comboPresetsOnText( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_listCtrlItemsOnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsAddFileOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsAddDirOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsRenameOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
@@ -283,6 +285,7 @@ class FormatsDialog : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void FormatsDialogOnInitDialog( wxInitDialogEvent& event ) { event.Skip(); }
+		virtual void m_listCtrlItemsOnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsDuplicateOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsDeleteAllOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsDeleteOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
@@ -317,6 +320,19 @@ class FormatsDialog : public wxDialog
 		
 	
 	public:
+		wxString m_PropertyName; 
+		wxString m_PropertyId; 
+		wxString m_PropertyInputExtensions; 
+		wxString m_PropertyOutputExtension; 
+		bool m_PropertyTypeEncoder; 
+		bool m_PropertyTypeDecoder; 
+		int m_PropertyExitCode; 
+		int m_PropertyDefaultPreset; 
+		bool m_PropertyPipeInput; 
+		bool m_PropertyPipeOutput; 
+		wxString m_PropertyFunction; 
+		wxString m_PropertyTemplate; 
+		wxString m_PropertyPath; 
 		
 		FormatsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Formats"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,656 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~FormatsDialog();
@@ -380,6 +396,7 @@ class ToolsDialog : public wxDialog
 		virtual void m_buttonSetSelectedPathsOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonSetX86PathsOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_buttonSetX64PathsOnButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void m_listCtrlItemsOnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsDuplicateOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsDeleteAllOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsDeleteOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
@@ -405,6 +422,13 @@ class ToolsDialog : public wxDialog
 		
 	
 	public:
+		wxString m_PropertyName; 
+		wxString m_PropertyPlatform; 
+		wxString m_PropertyFormats; 
+		wxString m_PropertyUrl; 
+		wxString m_PropertyFile; 
+		wxString m_PropertyExtract; 
+		wxString m_PropertyPath; 
 		
 		ToolsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Tools"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,656 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~ToolsDialog();
@@ -450,6 +474,7 @@ class PathsDialog : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void PathsDialogOnInitDialog( wxInitDialogEvent& event ) { event.Skip(); }
+		virtual void m_listCtrlItemsOnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsDuplicateOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsMoveUpOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
 		virtual void m_menuItemItemsMoveDownOnMenuSelection( wxCommandEvent& event ) { event.Skip(); }
@@ -472,6 +497,8 @@ class PathsDialog : public wxDialog
 		
 	
 	public:
+		wxString m_PropertyPath; 
+		int m_PropertySize; 
 		
 		PathsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Edit Paths"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,656 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~PathsDialog();

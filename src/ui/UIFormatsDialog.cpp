@@ -60,6 +60,11 @@ void UIFormatsDialog::FormatsDialogOnInitDialog(wxInitDialogEvent& event)
     m_listCtrlItems->SetFocus();
 }
 
+void UIFormatsDialog::m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event)
+{
+    // TODO: Implement m_listCtrlItemsOnUpdateUI
+}
+
 void UIFormatsDialog::m_menuItemItemsDuplicateOnMenuSelection(wxCommandEvent& event)
 {
     // TODO: Implement m_menuItemItemsDuplicateOnMenuSelection

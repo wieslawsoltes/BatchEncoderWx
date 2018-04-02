@@ -25,8 +25,6 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
         { 7, L"Status", 80 },
     };
 
-    m_listCtrlItems = new ItemsList(m_panelList, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLC_EDIT_LABELS | wxLC_HRULES | wxLC_REPORT | wxLC_VIRTUAL | wxLC_VRULES);
-
     for (auto& column : m_Columns)
     {
         m_listCtrlItems->InsertColumn(column.nIndex, column.szHeading, wxLIST_FORMAT_LEFT, column.nWidth);

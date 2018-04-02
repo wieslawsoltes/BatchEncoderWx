@@ -587,7 +587,11 @@ PresetsDialog::PresetsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizerTop;
 	bSizerTop = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_comboBoxFormats = new wxComboBox( m_panelTop, wxID_ANY, _("Combo!"), wxDefaultPosition, wxDefaultSize, 0, NULL, wxCB_DROPDOWN|wxCB_READONLY ); 
+	m_comboBoxFormats = new wxComboBox( m_panelTop, wxID_ANY, _("Combo!"), wxDefaultPosition, wxDefaultSize, 0, NULL, wxCB_DROPDOWN|wxCB_READONLY );
+	m_comboBoxFormats->Append( _("1") );
+	m_comboBoxFormats->Append( _("2") );
+	m_comboBoxFormats->Append( _("3") );
+	m_comboBoxFormats->SetSelection( 0 );
 	bSizerTop->Add( m_comboBoxFormats, 0, wxALL, 2 );
 	
 	
@@ -1051,7 +1055,11 @@ FormatsDialog::FormatsDialog( wxWindow* parent, wxWindowID id, const wxString& t
 	wxBoxSizer* bSizerPropertyDefaultPresetEdit;
 	bSizerPropertyDefaultPresetEdit = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_comboBoxDefaultPreset = new wxComboBox( m_panelProperties, wxID_ANY, _("Combo!"), wxDefaultPosition, wxDefaultSize, 0, NULL, wxCB_DROPDOWN|wxCB_READONLY ); 
+	m_comboBoxDefaultPreset = new wxComboBox( m_panelProperties, wxID_ANY, _("Combo!"), wxDefaultPosition, wxDefaultSize, 0, NULL, wxCB_DROPDOWN|wxCB_READONLY );
+	m_comboBoxDefaultPreset->Append( _("1") );
+	m_comboBoxDefaultPreset->Append( _("2") );
+	m_comboBoxDefaultPreset->Append( _("3") );
+	m_comboBoxDefaultPreset->SetSelection( 0 );
 	bSizerPropertyDefaultPresetEdit->Add( m_comboBoxDefaultPreset, 1, wxALL, 2 );
 	
 	

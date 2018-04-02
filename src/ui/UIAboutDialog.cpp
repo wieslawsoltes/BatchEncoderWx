@@ -5,6 +5,8 @@ UIAboutDialog::UIAboutDialog(wxWindow* parent)
     :
     AboutDialog(parent)
 {
+    this->Bind(wxEVT_CHAR_HOOK, &UIAboutDialog::OnCharHook, this);
+
     m_buttonOK->SetFocus();
 }
 
@@ -31,4 +33,14 @@ void UIAboutDialog::m_buttonOKOnButtonClick(wxCommandEvent& event)
 {
     this->SetReturnCode(wxID_OK);
     this->Close();
+}
+
+void UIAboutDialog::OnCharHook(wxKeyEvent& event)
+{
+    if (event.GetKeyCode() == WXK_ESCAPE)
+        EndModal(wxID_CANCEL);
+    else if (event.GetKeyCode() == 87 && event.ControlDown())
+        EndModal(wxID_OK);
+    else
+        event.Skip();
 }

@@ -49,6 +49,8 @@ public:
 protected:
     std::vector<CPath> m_Items;
     std::vector<ItemColumn> m_Columns;
+protected:
+    void OnCharHook(wxKeyEvent& event);
 };
 
 #endif // __UIPathsDialog__

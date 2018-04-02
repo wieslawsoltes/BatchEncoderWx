@@ -50,6 +50,8 @@ public:
 protected:
     std::vector<CPreset> m_Items;
     std::vector<ItemColumn> m_Columns;
+protected:
+    void OnCharHook(wxKeyEvent& event);
 };
 
 #endif // __UIPresetsDialog__

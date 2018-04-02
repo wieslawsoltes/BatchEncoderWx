@@ -23,6 +23,8 @@ public:
     /** Constructor */
     UIAboutDialog(wxWindow* parent);
     //// end generated class members
+protected:
+    void OnCharHook(wxKeyEvent& event);
 };
 
 #endif // __UIAboutDialog__

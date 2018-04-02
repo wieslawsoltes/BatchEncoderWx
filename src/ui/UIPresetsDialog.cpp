@@ -5,6 +5,8 @@ UIPresetsDialog::UIPresetsDialog(wxWindow* parent)
     :
     PresetsDialog(parent)
 {
+    this->Bind(wxEVT_CHAR_HOOK, &UIPresetsDialog::OnCharHook, this);
+
     for (int i = 0; i < 100; i++)
     {
         CPreset item;
@@ -171,4 +173,14 @@ void UIPresetsDialog::m_buttonCancelOnButtonClick(wxCommandEvent& event)
 {
     this->SetReturnCode(wxID_CANCEL);
     this->Close();
+}
+
+void UIPresetsDialog::OnCharHook(wxKeyEvent& event)
+{
+    if (event.GetKeyCode() == WXK_ESCAPE)
+        EndModal(wxID_CANCEL);
+    else if (event.GetKeyCode() == 87 && event.ControlDown())
+        EndModal(wxID_OK);
+    else
+        event.Skip();
 }

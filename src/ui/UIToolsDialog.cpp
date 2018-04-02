@@ -5,6 +5,8 @@ UIToolsDialog::UIToolsDialog(wxWindow* parent)
     :
     ToolsDialog(parent)
 {
+    this->Bind(wxEVT_CHAR_HOOK, &UIToolsDialog::OnCharHook, this);
+
     for (int i = 0; i < 100; i++)
     {
         CTool item;
@@ -208,4 +210,14 @@ void UIToolsDialog::m_buttonCancelOnButtonClick(wxCommandEvent& event)
 {
     this->SetReturnCode(wxID_CANCEL);
     this->Close();
+}
+
+void UIToolsDialog::OnCharHook(wxKeyEvent& event)
+{
+    if (event.GetKeyCode() == WXK_ESCAPE)
+        EndModal(wxID_CANCEL);
+    else if (event.GetKeyCode() == 87 && event.ControlDown())
+        EndModal(wxID_OK);
+    else
+        event.Skip();
 }

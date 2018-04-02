@@ -5,6 +5,8 @@ UIFormatsDialog::UIFormatsDialog(wxWindow* parent)
     :
     FormatsDialog(parent)
 {
+    this->Bind(wxEVT_CHAR_HOOK, &UIFormatsDialog::OnCharHook, this);
+
     for (int i = 0; i < 100; i++)
     {
         CFormat item;
@@ -251,4 +253,14 @@ void UIFormatsDialog::m_buttonCancelOnButtonClick(wxCommandEvent& event)
 {
     this->SetReturnCode(wxID_CANCEL);
     this->Close();
+}
+
+void UIFormatsDialog::OnCharHook(wxKeyEvent& event)
+{
+    if (event.GetKeyCode() == WXK_ESCAPE)
+        EndModal(wxID_CANCEL);
+    else if (event.GetKeyCode() == 87 && event.ControlDown())
+        EndModal(wxID_OK);
+    else
+        event.Skip();
 }

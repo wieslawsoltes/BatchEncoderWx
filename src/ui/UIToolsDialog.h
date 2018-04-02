@@ -57,6 +57,8 @@ public:
 protected:
     std::vector<CTool> m_Items;
     std::vector<ItemColumn> m_Columns;
+protected:
+    void OnCharHook(wxKeyEvent& event);
 };
 
 #endif // __UIToolsDialog__

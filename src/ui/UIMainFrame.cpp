@@ -41,8 +41,8 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
         auto& item = m_Items[nItem];
         switch (nColumn)
         {
-        case 0: return std::to_wstring(item.nId);
-        case 1: return item.szName;
+        case 0: return item.szName;
+        case 1: return std::to_wstring(item.nId);
         case 2: return L"TEST2";
         case 3: return L"TEST3";
         case 4: return L"TEST4";
@@ -58,8 +58,8 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
         auto& item = m_Items[nItem];
         switch (nColumn)
         {
-        case 0: item.nId = std::stoi(value); break;
-        case 1: item.szName = value; break;
+        case 0: item.szName = value; break;
+        case 1: item.nId = std::stoi(value); break;
         case 2: break;
         case 3: break;
         case 4: break;

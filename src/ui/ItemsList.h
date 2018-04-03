@@ -31,23 +31,11 @@ public:
         const wxString& name = wxListCtrlNameStr) :
         wxListCtrl(parent, id, pos, size, style, validator, name)
     {
-        // Connect Events
-        this->Connect(wxEVT_COMMAND_LIST_BEGIN_LABEL_EDIT, wxListEventHandler(ItemsList::m_listCtrlItemsOnListBeginLabelEdit), NULL, this);
-        this->Connect(wxEVT_COMMAND_LIST_DELETE_ALL_ITEMS, wxListEventHandler(ItemsList::m_listCtrlItemsOnListDeleteAllItems), NULL, this);
-        this->Connect(wxEVT_COMMAND_LIST_DELETE_ITEM, wxListEventHandler(ItemsList::m_listCtrlItemsOnListDeleteItem), NULL, this);
         this->Connect(wxEVT_COMMAND_LIST_END_LABEL_EDIT, wxListEventHandler(ItemsList::m_listCtrlItemsOnListEndLabelEdit), NULL, this);
-        this->Connect(wxEVT_COMMAND_LIST_ITEM_DESELECTED, wxListEventHandler(ItemsList::m_listCtrlItemsOnListItemDeselected), NULL, this);
-        this->Connect(wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler(ItemsList::m_listCtrlItemsOnListItemSelected), NULL, this);
     }
     ~ItemsList()
     {
-        // Disconnect Events
-        this->Disconnect(wxEVT_COMMAND_LIST_BEGIN_LABEL_EDIT, wxListEventHandler(ItemsList::m_listCtrlItemsOnListBeginLabelEdit), NULL, this);
-        this->Disconnect(wxEVT_COMMAND_LIST_DELETE_ALL_ITEMS, wxListEventHandler(ItemsList::m_listCtrlItemsOnListDeleteAllItems), NULL, this);
-        this->Disconnect(wxEVT_COMMAND_LIST_DELETE_ITEM, wxListEventHandler(ItemsList::m_listCtrlItemsOnListDeleteItem), NULL, this);
         this->Disconnect(wxEVT_COMMAND_LIST_END_LABEL_EDIT, wxListEventHandler(ItemsList::m_listCtrlItemsOnListEndLabelEdit), NULL, this);
-        this->Disconnect(wxEVT_COMMAND_LIST_ITEM_DESELECTED, wxListEventHandler(ItemsList::m_listCtrlItemsOnListItemDeselected), NULL, this);
-        this->Disconnect(wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler(ItemsList::m_listCtrlItemsOnListItemSelected), NULL, this);
     }
 public:
     wxString OnGetItemText(long item, long column) const
@@ -59,15 +47,6 @@ public:
         return L"??";
     }
 public:
-    void m_listCtrlItemsOnListBeginLabelEdit(wxListEvent& event)
-    {
-    }
-    void m_listCtrlItemsOnListDeleteAllItems(wxListEvent& event)
-    {
-    }
-    void m_listCtrlItemsOnListDeleteItem(wxListEvent& event)
-    {
-    }
     void m_listCtrlItemsOnListEndLabelEdit(wxListEvent& event)
     {
         if (!event.IsEditCancelled())
@@ -78,14 +57,9 @@ public:
                 auto col = event.m_item.m_col;
                 auto text = event.m_item.m_text;
                 SetText(id, col, text);
+                wxLogDebug(L"Edit Property");
             }
         }
-    }
-    void m_listCtrlItemsOnListItemDeselected(wxListEvent& event)
-    {
-    }
-    void m_listCtrlItemsOnListItemSelected(wxListEvent& event)
-    {
     }
 public:
     template<typename T>

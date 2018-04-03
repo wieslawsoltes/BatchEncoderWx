@@ -57,7 +57,7 @@ public:
                 auto col = event.m_item.m_col;
                 auto text = event.m_item.m_text;
                 SetText(id, col, text);
-                wxLogDebug(L"Edit Property");
+                wxLogDebug(L"Edit Label");
             }
         }
     }

@@ -50,9 +50,16 @@ void UIPresetsDialog::PresetsDialogOnInitDialog(wxInitDialogEvent& event)
         auto& item = m_Items[nItem];
         switch (nColumn)
         {
-        case 0: item.szName = text; break;
-        case 1: item.szOptions = text; break;
+        case 0: 
+            item.szName = text;
+            m_PropertyName = item.szName;
+            break;
+        case 1: 
+            item.szOptions = text; 
+            m_PropertyOptions = item.szOptions;
+            break;
         }
+        this->TransferDataToWindow();
     };
 
     m_listCtrlItems->SetItemCount(m_Items.size());

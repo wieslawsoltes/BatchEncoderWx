@@ -11,6 +11,8 @@ void UIAboutDialog::AboutDialogOnInitDialog(wxInitDialogEvent& event)
 {
     this->Bind(wxEVT_CHAR_HOOK, &UIAboutDialog::OnCharHook, this);
 
+    m_staticApplicationName->SetLabel(_(VER_PRODUCTNAME_STR " v" VER_FILE_VERSION_SHORT_STR " " VER_COPYRIGHT_STR));
+
     m_hyperlinkApplicationWebsite->SetLabel(L"https://github.com/wieslawsoltes/BatchEncoder");
     m_hyperlinkApplicationWebsite->SetURL(L"https://github.com/wieslawsoltes/BatchEncoder");
 

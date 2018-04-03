@@ -5,6 +5,8 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
     :
     MainFrame(parent)
 {
+    this->SetIcon(wxIcon(icon_xpm));
+
     this->DragAcceptFiles(true);
     this->Connect(wxEVT_DROP_FILES, wxDropFilesEventHandler(UIMainFrame::MainFrameOnDropFiles), NULL, this);
 

@@ -38,6 +38,7 @@
 #include <wx/valgen.h>
 #include <wx/radiobut.h>
 #include <wx/checkbox.h>
+#include <wx/statbmp.h>
 #include <wx/hyperlink.h>
 
 ///////////////////////////////////////////////////////////////////////////
@@ -521,6 +522,7 @@ class AboutDialog : public wxDialog
 		wxPanel* m_panelContent;
 		wxPanel* m_panelTop;
 		wxPanel* m_panelAbout;
+		wxStaticBitmap* m_bitmapIcon;
 		wxStaticText* m_staticApplicationName;
 		wxHyperlinkCtrl* m_hyperlinkApplicationWebsite;
 		wxHyperlinkCtrl* m_hyperlinkApplicationEmail;

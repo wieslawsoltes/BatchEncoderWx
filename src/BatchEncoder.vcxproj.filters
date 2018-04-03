@@ -51,6 +51,9 @@
     <ClInclude Include="ui\ItemsList.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="res\version.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainApp.cpp">
@@ -77,5 +80,23 @@
     <ClCompile Include="ui\UIAboutDialog.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\icon.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="res\version.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\icon.xpm">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

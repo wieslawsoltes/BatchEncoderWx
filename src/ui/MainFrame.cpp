@@ -9,6 +9,8 @@
 
 #include "MainFrame.h"
 
+#include "res/icon.xpm"
+
 ///////////////////////////////////////////////////////////////////////////
 
 MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
@@ -2052,23 +2054,32 @@ AboutDialog::AboutDialog( wxWindow* parent, wxWindowID id, const wxString& title
 	
 	m_panelAbout = new wxPanel( m_panelContent, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizerAbout;
-	bSizerAbout = new wxBoxSizer( wxVERTICAL );
+	bSizerAbout = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticApplicationName = new wxStaticText( m_panelAbout, wxID_ANY, _("BatchEncoder (Audio Conversion GUI)"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
+	m_bitmapIcon = new wxStaticBitmap( m_panelAbout, wxID_ANY, wxBitmap( icon_xpm ), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizerAbout->Add( m_bitmapIcon, 0, wxALL, 5 );
+	
+	wxBoxSizer* bSizerInfo;
+	bSizerInfo = new wxBoxSizer( wxVERTICAL );
+	
+	m_staticApplicationName = new wxStaticText( m_panelAbout, wxID_ANY, _("BatchEncoder"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
 	m_staticApplicationName->Wrap( -1 );
 	m_staticApplicationName->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxEmptyString ) );
 	
-	bSizerAbout->Add( m_staticApplicationName, 0, wxALL|wxEXPAND, 5 );
+	bSizerInfo->Add( m_staticApplicationName, 0, wxALL|wxEXPAND, 5 );
 	
 	m_hyperlinkApplicationWebsite = new wxHyperlinkCtrl( m_panelAbout, wxID_ANY, _("Website"), wxEmptyString, wxDefaultPosition, wxDefaultSize, wxHL_ALIGN_CENTRE|wxHL_DEFAULT_STYLE );
-	bSizerAbout->Add( m_hyperlinkApplicationWebsite, 0, wxALIGN_CENTER|wxALL, 5 );
+	bSizerInfo->Add( m_hyperlinkApplicationWebsite, 0, wxALIGN_CENTER|wxALL, 5 );
 	
 	m_hyperlinkApplicationEmail = new wxHyperlinkCtrl( m_panelAbout, wxID_ANY, _("E-mail"), wxEmptyString, wxDefaultPosition, wxDefaultSize, wxHL_ALIGN_CENTRE|wxHL_DEFAULT_STYLE );
-	bSizerAbout->Add( m_hyperlinkApplicationEmail, 0, wxALIGN_CENTER|wxALL, 5 );
+	bSizerInfo->Add( m_hyperlinkApplicationEmail, 0, wxALIGN_CENTER|wxALL, 5 );
 	
 	m_staticApplicationLicense = new wxStaticText( m_panelAbout, wxID_ANY, _("Licensed under the MIT license. See LICENSE file in the application root for full license information."), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
 	m_staticApplicationLicense->Wrap( 1000 );
-	bSizerAbout->Add( m_staticApplicationLicense, 0, wxALL|wxEXPAND, 5 );
+	bSizerInfo->Add( m_staticApplicationLicense, 0, wxALL|wxEXPAND, 5 );
+	
+	
+	bSizerAbout->Add( bSizerInfo, 1, wxEXPAND, 5 );
 	
 	
 	m_panelAbout->SetSizer( bSizerAbout );

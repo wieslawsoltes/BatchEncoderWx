@@ -15,9 +15,11 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
 
     for (int i = 0; i < 100; i++)
     {
-        CItem item;
+        config::CItem item;
         item.nId = i;
         item.szName = L"Name" + std::to_wstring(item.nId);
+        item.nSize = i;
+        item.nPreset = 0;
         m_Items.emplace_back(std::move(item));
     }
 
@@ -44,13 +46,13 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
         switch (nColumn)
         {
         case 0: return item.szName;
-        case 1: return std::to_wstring(item.nId);
-        case 2: return L"TEST2";
-        case 3: return L"TEST3";
-        case 4: return L"TEST4";
-        case 5: return L"TEST5";
-        case 6: return L"TEST6";
-        case 7: return L"TEST7";
+        case 1: return item.szExtension;
+        case 2: return std::to_wstring(item.nSize);
+        case 3: return item.szFormatId;
+        case 4: return std::to_wstring(item.nPreset);
+        case 5: return item.szOptions;
+        case 6: return item.szTime;
+        case 7: return item.szStatus;
         }
         return L"??";
     };
@@ -77,7 +79,7 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
 
 void UIMainFrame::m_menuItemFileLoadListOnMenuSelection(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Open list"),
         wxEmptyString, wxEmptyString,
@@ -91,7 +93,7 @@ void UIMainFrame::m_menuItemFileLoadListOnMenuSelection(wxCommandEvent& event)
 
 void UIMainFrame::m_menuItemFileSaveListOnMenuSelection(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Save list"),
         wxEmptyString, wxEmptyString,
@@ -115,7 +117,7 @@ void UIMainFrame::m_menuItemFileExitOnMenuSelection(wxCommandEvent& event)
 
 void UIMainFrame::m_menuItemEditAddFileOnMenuSelection(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Add files"),
         wxEmptyString, wxEmptyString,
@@ -129,7 +131,7 @@ void UIMainFrame::m_menuItemEditAddFileOnMenuSelection(wxCommandEvent& event)
 
 void UIMainFrame::m_menuItemEditAddDirOnMenuSelection(wxCommandEvent& event)
 {
-    wxDirDialog *dlg = new wxDirDialog(
+    auto dlg = std::make_unique<wxDirDialog>(
         this,
         _("Add directory"),
         wxEmptyString,
@@ -407,7 +409,7 @@ void UIMainFrame::m_comboBoxOutputOnText(wxCommandEvent& event)
 
 void UIMainFrame::m_buttonBrowseOnButtonClick(wxCommandEvent& event)
 {
-    wxDirDialog *dlg = new wxDirDialog(
+    auto dlg = std::make_unique<wxDirDialog>(
         this,
         _("Output path"),
         wxEmptyString,

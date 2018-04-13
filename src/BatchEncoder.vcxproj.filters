@@ -19,6 +19,12 @@
     <Filter Include="Source Files\UI">
       <UniqueIdentifier>{90478976-0930-4740-b72e-0422be74e007}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Config">
+      <UniqueIdentifier>{d54231b0-8b8e-45c8-92a3-8cad496f01bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Worker">
+      <UniqueIdentifier>{0ea94777-0fa9-4291-9f54-0a25cea23983}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainApp.h">
@@ -53,6 +59,63 @@
     </ClInclude>
     <ClInclude Include="res\version.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Config.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Format.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Item.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Language.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Options.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Path.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Preset.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Settings.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Strings.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\config\Tool.h">
+      <Filter>Header Files\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="core\worker\CommandLine.h">
+      <Filter>Header Files\Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="core\worker\InputPath.h">
+      <Filter>Header Files\Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="core\worker\LuaProgess.h">
+      <Filter>Header Files\Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="core\worker\OutputPath.h">
+      <Filter>Header Files\Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="core\worker\ToolDownloader.h">
+      <Filter>Header Files\Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="core\worker\Win32.h">
+      <Filter>Header Files\Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="core\worker\Worker.h">
+      <Filter>Header Files\Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="core\worker\WorkerContext.h">
+      <Filter>Header Files\Worker</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

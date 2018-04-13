@@ -6,6 +6,7 @@
 #endif
 
 #include "MainApp.h"
+#include "Headers.h"
 #include "ui/UIMainFrame.h"
 
 bool MainApp::OnInit()

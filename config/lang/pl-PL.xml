@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Language id="pl-PL" original="Polish" translated="Polski">
+
+    <!-- File Menu -->
+
+    <String key="0x00010001" value="&amp;Plik" />
+    <String key="0x00010002" value="&amp;Otwórz Listę...	Ctrl+L" />
+    <String key="0x00010003" value="&amp;Zapisz Listę...	Ctrl+S" />
+    <String key="0x00010004" value="&amp;Wyczyść Listę	Ctrl+E" />
+    <String key="0x00010005" value="Za&amp;kończ	Alt+F4" />
+
+    <!-- Edit Menu -->
+
+    <String key="0x00020001" value="&amp;Edycja" />
+    <String key="0x00020002" value="&amp;Dodaj Pliki...	F5" />
+    <String key="0x00020003" value="Dodaj &amp;Folder...	F6" />
+    <String key="0x00020004" value="Z&amp;mień Nazwę	F2" />
+    <String key="0x00020005" value="Rese&amp;tuj Czas/Status	F3" />
+    <String key="0x00020006" value="Resetuj Wyjście&amp;/Preset	F4" />
+    <String key="0x00020007" value="&amp;Usuń	DEL" />
+    <String key="0x00020008" value="&amp;Przytnij	INS" />
+    <String key="0x00020009" value="U&amp;suń Zaznaczone	Ctrl++" />
+    <String key="0x0002000A" value="Usuń &amp;Niezaznaczone	Ctrl+-" />
+    <String key="0x0002000B" value="Zazna&amp;cz Wybrane	Shift++" />
+    <String key="0x0002000C" value="Odznac&amp;z Wybrane	Shift+-" />
+    <String key="0x0002000D" value="Zaznacz &amp;Wszystko	Ctrl+A" />
+    <String key="0x0002000E" value="Odznacz Wsz&amp;ystko	Ctrl+N" />
+    <String key="0x0002000F" value="Odwróć Zaznaczen&amp;ie	Ctrl+I" />
+    <String key="0x00020010" value="&amp;Otwórz Plik..." />
+    <String key="0x00020011" value="Otwórz Folde&amp;r..." />
+
+    <!-- Action Menu -->
+
+    <String key="0x00030001" value="&amp;Akcja" />
+    <String key="0x00030002" value="Konwe&amp;rtuj	F9" />
+    <String key="0x00030003" value="Za&amp;trzymaj	F9" />
+
+    <!-- Options Menu -->
+
+    <String key="0x00040001" value="&amp;Opcje" />
+    <String key="0x00040002" value="Konifguracja &amp;Presetów...	F7" />
+    <String key="0x00040003" value="Konifguracja &amp;Formatów...	F8" />
+    <String key="0x00040004" value="&amp;Usuń Pliki Źródłowe" />
+    <String key="0x00040005" value="&amp;Wyłącz Po Zakończeniu" />
+    <String key="0x00040006" value="Nie &amp;Zapisuj Konfiguracji Przy Wyjściu" />
+    <String key="0x00040007" value="Usuń Plik Wyjściowy W Przypadku &amp;Błędu" />
+    <String key="0x00040008" value="Zatrzymaj &amp;Konwersje W Przypadku Błędu" />
+    <String key="0x00040009" value="Uk&amp;ryj Okno Konsoli" />
+    <String key="0x0004000A" value="Zapewnij Że &amp;Element Jest Widoczny" />
+    <String key="0x0004000B" value="Spróbuj Znaleźć &amp;Dekoder" />
+    <String key="0x0004000C" value="&amp;Sprawdź Poprawność Plików Wejściowych" />
+    <String key="0x0004000D" value="Nadpisz &amp;Istniejące Pliki" />
+    <String key="0x0004000E" value="Konifguracja &amp;Narzędzi...	F10" />
+    <String key="0x0004000F" value="Spróbuj Pobr&amp;ać Narzędzia" />
+    <String key="0x00040010" value="Z&amp;mień Nazwę Istniejących Plików" />
+
+    <!-- Language Menu -->
+
+    <String key="0x00050001" value="&amp;Język" />
+    <String key="0x00050002" value="&amp;Domyślny (English)" />
+
+    <!-- Help Menu -->
+
+    <String key="0x00060001" value="Pomo&amp;c" />
+    <String key="0x00060002" value="&amp;Witryna Internetowa..." />
+    <String key="0x00060003" value="&amp;O Programie..." />
+
+    <!-- Main Dialog -->
+
+    <String key="0x000A0001" value="Nazwa" />
+    <String key="0x000A0002" value="Wejście" />
+    <String key="0x000A0003" value="Rozmiar (bajty)" />
+    <String key="0x000A0004" value="Wyjście" />
+    <String key="0x000A0005" value="Preset#" />
+    <String key="0x000A0006" value="Czas" />
+    <String key="0x000A0007" value="Status" />
+
+    <String key="0x000A0010" value="BatchEncoder" />
+    <String key="0x000A0011" value="Wyjście" />
+    <String key="0x000A0012" value="format:" />
+    <String key="0x000A0013" value="preset:" />
+    <String key="0x000A0014" value="Ścieżka wyjściowa:" />
+    <String key="0x000A0015" value="&amp;..." />
+    <String key="0x000A0016" value="wątki (0=auto):" />
+    <String key="0x000A0017" value="Konwe&amp;rtuj" />
+    <String key="0x000A0018" value="Za&amp;trzymaj" />
+
+    <!-- Paths Dialog -->
+
+    <String key="0x000F0001" value="Ścieżka" />
+    <String key="0x000F0002" value="Rozmiar (bajty)" />
+
+    <String key="0x000F0010" value="Edytuj Ścieżki" />
+    <String key="0x000F0011" value="&amp;Anuluj" />
+    <String key="0x000F0012" value="Ścieżka:" />
+    <String key="0x000F0013" value="Rozmiar:" />
+    <String key="0x000F0014" value="przesuń &amp;w Górę" />
+    <String key="0x000F0015" value="prz&amp;esuń w Dół" />
+    <String key="0x000F0016" value="Usuń Wszys&amp;tkie" />
+    <String key="0x000F0017" value="&amp;Usuń" />
+    <String key="0x000F0018" value="&amp;Dodaj" />
+    <String key="0x000F0019" value="&amp;Importuj" />
+    <String key="0x000F001A" value="E&amp;ksportuj" />
+    <String key="0x000F001B" value="Z&amp;mień" />
+    <String key="0x000F001C" value="&amp;OK" />
+    <String key="0x000F001D" value="Dup&amp;likuj" />
+    <String key="0x000F001E" value="&amp;..." />
+
+    <!-- Presets Dialog -->
+
+    <String key="0x000B0001" value="Nazwa" />
+    <String key="0x000B0002" value="Opcje" />
+
+    <String key="0x000B0010" value="Konifguracja Presetów" />
+    <String key="0x000B0011" value="&amp;Anuluj" />
+    <String key="0x000B0012" value="Nazwa:" />
+    <String key="0x000B0013" value="Opcje wiersza polecenia:" />
+    <String key="0x000B0014" value="przesuń &amp;w Górę" />
+    <String key="0x000B0015" value="prz&amp;esuń w Dół" />
+    <String key="0x000B0016" value="Usuń Wszys&amp;tkie" />
+    <String key="0x000B0017" value="&amp;Usuń" />
+    <String key="0x000B0018" value="&amp;Dodaj" />
+    <String key="0x000B0019" value="&amp;Importuj" />
+    <String key="0x000B001A" value="E&amp;ksportuj" />
+    <String key="0x000B001B" value="Z&amp;mień" />
+    <String key="0x000B001C" value="&amp;OK" />
+    <String key="0x000B001D" value="Dup&amp;likuj" />
+
+    <!-- Formats Dialog -->
+
+    <String key="0x000C0001" value="Nazwa" />
+    <String key="0x000C0002" value="Id" />
+    <String key="0x000C0003" value="Priorytet" />
+    <String key="0x000C0004" value="Szablon" />
+
+    <String key="0x000C0010" value="Konifguracja Formatów" />
+    <String key="0x000C0011" value="&amp;Anuluj" />
+    <String key="0x000C0012" value="Koder" />
+    <String key="0x000C0013" value="Dekoder" />
+    <String key="0x000C0014" value="Typ:" />
+    <String key="0x000C0015" value="Wejście" />
+    <String key="0x000C0016" value="Wyjście" />
+    <String key="0x000C0017" value="Potoki:" />
+    <String key="0x000C0018" value="Id:" />
+    <String key="0x000C0019" value="Nazwa:" />
+    <String key="0x000C001A" value="Rozszerzenie wyjściowe:" />
+    <String key="0x000C001B" value="Rozszerzenia wejściowe (oddzielone przecinkiem):" />
+    <String key="0x000C001C" value="Domyślny preset:" />
+    <String key="0x000C001D" value="Wiersz polecenia ścieżka pliku wykonywalnego:" />
+    <String key="0x000C001E" value="&amp;..." />
+    <String key="0x000C001F" value="Wiersz polecenia szablon:" />
+    <String key="0x000C0020" value="Funkcja postępu:" />
+    <String key="0x000C0021" value="..." />
+    <String key="0x000C0022" value="przesuń &amp;w Górę" />
+    <String key="0x000C0023" value="prz&amp;esuń w Dół" />
+    <String key="0x000C0024" value="Usuń Wszys&amp;tkie" />
+    <String key="0x000C0025" value="&amp;Usuń" />
+    <String key="0x000C0026" value="&amp;Dodaj" />
+    <String key="0x000C0027" value="Otwór&amp;z" />
+    <String key="0x000C0028" value="Zapisz &amp;Jako" />
+    <String key="0x000C0029" value="Z&amp;mień" />
+    <String key="0x000C002A" value="&amp;OK" />
+    <String key="0x000C002B" value="Kod wyjścia kiedy sukces:" />
+    <String key="0x000C002C" value="Edytuj &amp;Presety" />
+    <String key="0x000C002D" value="&amp;Importuj" />
+    <String key="0x000C002E" value="E&amp;ksportuj" />
+    <String key="0x000C002F" value="Dup&amp;likuj" />
+    <String key="0x000C0030" value="Priorytet:" />
+
+    <!-- Tools Dialog -->
+
+    <String key="0x000E0001" value="Nazwa" />
+    <String key="0x000E0002" value="Priorytet" />
+    <String key="0x000E0003" value="Url" />
+    <String key="0x000E0004" value="Status" />
+
+    <String key="0x000E0010" value="Konifguracja Narzędzi" />
+    <String key="0x000E0011" value="&amp;Anuluj" />
+    <String key="0x000E0012" value="Nazwa:" />
+    <String key="0x000E0013" value="Platforma:" />
+    <String key="0x000E0014" value="Wspierane formaty (oddzielone przecinkiem):" />
+    <String key="0x000E0015" value="Adres URL do pobrania:" />
+    <String key="0x000E0016" value="Nazwa pobranego pliku:" />
+    <String key="0x000E0017" value="Metoda rozpakowania:" />
+    <String key="0x000E0018" value="Ścieżka do rozpakowania:" />
+    <String key="0x000E0019" value="przesuń &amp;w Górę" />
+    <String key="0x000E001A" value="prz&amp;esuń w Dół" />
+    <String key="0x000E001B" value="&amp;Importuj" />
+    <String key="0x000E001C" value="E&amp;ksportuj" />
+    <String key="0x000E001D" value="Dup&amp;likuj" />
+    <String key="0x000E001E" value="Usuń Wszys&amp;tkie" />
+    <String key="0x000E001F" value="&amp;Usuń" />
+    <String key="0x000E0020" value="&amp;Dodaj" />
+    <String key="0x000E0021" value="Otwór&amp;z" />
+    <String key="0x000E0022" value="Zapisz &amp;Jako" />
+    <String key="0x000E0023" value="&amp;Pobierz Wybrane" />
+    <String key="0x000E0024" value="Zatrzymaj Pobie&amp;ranie" />
+    <String key="0x000E0025" value="Ustaw &amp;Wybrane Ścieżki" />
+    <String key="0x000E0026" value="Ustaw Ścieżki x&amp;86" />
+    <String key="0x000E0027" value="Ustaw Ścieżki x&amp;64" />
+    <String key="0x000E0028" value="Z&amp;mień" />
+    <String key="0x000E0029" value="&amp;OK" />
+    <String key="0x000E002A" value="Priorytet:" />
+
+    <!-- About Dialog -->
+
+    <String key="0x000D0010" value="O programie BatchEncoder" />
+    <String key="0x000D0011" value="&amp;OK" />
+    <String key="0x000D0012" value="Program na licencji MIT. Zobacz plik LICENSE w katalogu głównym aplikacji dla pełnej informacji licencyjnej." />
+
+    <!-- Strings Work Thread -->
+
+    <String key="0x00110001" value="Błąd: nie można załadować skryptu postępu." />
+    <String key="0x00110002" value="Błąd: nie można znaleźć funkcji postępu." />
+    <String key="0x00110003" value="Błąd: linia konsoli jest zbyt duża dla buforu odczytu." />
+
+    <String key="0x00120001" value="Błąd: nieprawidłowa konfiguracja potoku formatu." />
+    <String key="0x00120002" value="Błąd: nie można utworzyć potoku dla stderr." />
+    <String key="0x00120003" value="Błąd: nie można powielić potoku stderr aby zapobiec procesowi potomnemu przed zamknięciem potoku." />
+    <String key="0x00120004" value="Błąd: nie można utworzyć procesu z wiersza poleceń." />
+    <String key="0x00120005" value="Błąd: postęp nie osiągnął 100%." />
+    <String key="0x00120006" value="Wykonane" />
+
+    <String key="0x00130001" value="Błąd: nieprawidłowa konfiguracja potoku formatu." />
+    <String key="0x00130002" value="Błąd: nie można utworzyć potoku dla stdin." />
+    <String key="0x00130003" value="Błąd: nie można ustawić flagi dziedziczenia dla potoku stdin." />
+    <String key="0x00130004" value="Błąd: nie można utworzyć potoku dla stdout." />
+    <String key="0x00130005" value="Błąd: nie można ustawić flagi dziedziczenia dla potoku stdout." />
+    <String key="0x00130006" value="Błąd: nie można utworzyć procesu z wiersza poleceń." />
+    <String key="0x00130007" value="Błąd: nie można utworzyć wątka odczytu." />
+    <String key="0x00130008" value="Błąd: nie można utworzyć wątka zapisu." />
+    <String key="0x00130009" value="Błąd: postęp nie osiągnął 100%." />
+    <String key="0x0013000A" value="Błąd: nie można utworzyć potoku dla połączenia procesów." />
+    <String key="0x0013000B" value="Wykonane" />
+    <String key="0x0013000C" value="Błąd: nie można utworzyć potoku dla stderr." />
+    <String key="0x0013000D" value="Błąd: nie można ustawić flagi dziedziczenia dla potoku stderr." />
+    <String key="0x0013000E" value="Błąd: nie można utworzyć wątka wyjścia." />
+
+    <String key="0x00140001" value="Błąd: nie można znaleźć pliku wejściowego." />
+    <String key="0x00140002" value="Błąd: nie można znaleźć poprawnego kodera poprzez id." />
+    <String key="0x00140003" value="Błąd: nie można znaleźć poprawnego presetu dla formatu kodera." />
+    <String key="0x00140004" value="Błąd: nie można znaleźć poprawnego dekodera poprzez rozszerzenie." />
+    <String key="0x00140005" value="Błąd: nie można znaleźć poprawnego presetu dla formatu dekodera." />
+    <String key="0x00140006" value="Błąd: wyjście dekodera nie jest obsługiwane przez koder." />
+    <String key="0x00140007" value="Dekodowanie..." />
+    <String key="0x00140008" value="Błąd: nie mogę znaleźć plik zdekodowany." />
+    <String key="0x00140009" value="Błąd: wyjątek został wyrzucony podczas konwersji pliku." />
+    <String key="0x0014000A" value="Kodowanie..." />
+    <String key="0x0014000B" value="Dekodowanie..." />
+    <String key="0x0014000C" value="Transkodowanie..." />
+    <String key="0x0014000D" value="Błąd: nie mogę znaleźć plik zakodowany." />
+    <String key="0x0014000E" value="Błąd: wyjątek został wyrzucony podczas konwersji pliku." />
+    <String key="0x0014000F" value="Nie można utworzyć ścieżki wyjściowej!" />
+    <String key="0x00140010" value="Plik wyjściowy już istnieje." />
+
+    <String key="0x00150001" value="--:--" />
+
+    <!-- Strings Worker Context -->
+
+    <String key="0x00190001" value="Błąd" />
+    <String key="0x00190002" value="Błędy" />
+    <String key="0x00190003" value="Przetwarzanie elementu %d z %d (%d Wykonane, %d %s)" />
+    <String key="0x00190004" value="Przetworzono %d z %d (%d Wykonane, %d %s) w %s" />
+
+    <!-- Strings Main Dialog -->
+
+    <String key="0x00210001" value="Nie Wykonano" />
+    <String key="0x00210002" value="Element" />
+    <String key="0x00210003" value="Elementy" />
+    <String key="0x00210004" value="Brak Elementów" />
+    <String key="0x00210005" value="Dołącz podkatalogi" />
+    <String key="0x00210006" value="Ścieżka wyjściowa:" />
+    <String key="0x00210007" value="Nie udało się wczytać pliku!" />
+    <String key="0x00210008" value="Nie udało się zapisać pliku!" />
+    <String key="0x00210009" value="Nie powiodło się przydzielić pamięci dla bufora nazw plików!" />
+    <String key="0x0021000A" value="Wybierz folder:" />
+    <String key="0x0021000B" value="Błąd podczas wyszukiwania plików językowych!" />
+    <String key="0x0021000C" value="Błąd podczas wyszukiwania plików elementów!" />
+    <String key="0x0021000D" value="Nie można utworzyć ścieżki wyjściowej!" />
+    <String key="0x0021000E" value="Błąd krytyczny podczas tworzenia wątku!" />
+    <String key="0x0021000F" value="Nieprawidłowy format ścieżki wyjściowej!" />
+
+    <!-- Strings Presets Dialog -->
+
+    <String key="0x00220001" value="BŁĄD" />
+    <String key="0x00220002" value="Nie udało się wczytać pliku!" />
+    <String key="0x00220003" value="Nie udało się zapisać pliku!" />
+    <String key="0x00220004" value="Domyślny" />
+    <String key="0x00220005" value="-kopia" />
+
+    <!-- Strings Formats Dialog -->
+
+    <String key="0x00230001" value="BŁĄD" />
+    <String key="0x00230002" value="Nie udało się wczytać pliku!" />
+    <String key="0x00230003" value="Nie udało się zapisać pliku!" />
+    <String key="0x00230004" value="Format" />
+    <String key="0x00230005" value="Domyślny" />
+    <String key="0x00230006" value="-kopia" />
+
+    <!-- Strings Tools Dialog -->
+
+    <String key="0x00240001" value="BŁĄD" />
+    <String key="0x00240002" value="Nie udało się wczytać pliku!" />
+    <String key="0x00240003" value="Nie udało się zapisać pliku!" />
+    <String key="0x00240004" value="Narzędzie" />
+    <String key="0x00240005" value="-kopia" />
+
+    <!-- Strings File Dialogs -->
+
+    <String key="0x00310001" value="Wszystkie Pliki" />
+    <String key="0x00310002" value="Pliki Xml" />
+    <String key="0x00310003" value="Pliki Items" />
+    <String key="0x00310004" value="Pliki Presets" />
+    <String key="0x00310005" value="Pliki Formats" />
+    <String key="0x00310006" value="Pliki Exe" />
+    <String key="0x00310007" value="Pliki Progress" />
+    <String key="0x00310008" value="Pliki Format" />
+    <String key="0x00310009" value="Pliki Tools" />
+    <String key="0x0031000A" value="Pliki Tool" />
+    <String key="0x0031000B" value="Pliki Ścieżek" />
+
+    <!-- Strings Download Status -->
+
+    <String key="0x00400001" value="Znajdowanie zasobów..." />
+    <String key="0x00400002" value="Łączenie..." />
+    <String key="0x00400003" value="Wysyłanie zapytania..." />
+    <String key="0x00400004" value="Dostępny typ mime" />
+    <String key="0x00400005" value="Dostępny plik w pamięci podręcznej" />
+    <String key="0x00400006" value="Rozpoczęcie pobierania" />
+    <String key="0x00400007" value="Koniec pobierania" />
+    <String key="0x00400008" value="Kod statusu : " />
+
+    <!-- Strings Extract Status -->
+
+    <String key="0x00410001" value="Nie udało się utworzyć folderu do rozpakowania." />
+    <String key="0x00410002" value="Rozpakowano pobrany plik." />
+    <String key="0x00410003" value="Nie udało się rozpakować pobranego pliku." />
+
+</Language>

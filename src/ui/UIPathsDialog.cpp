@@ -13,7 +13,7 @@ void UIPathsDialog::PathsDialogOnInitDialog(wxInitDialogEvent& event)
 
     for (int i = 0; i < 100; i++)
     {
-        CPath item;
+        config::CPath item;
         m_Items.emplace_back(std::move(item));
     }
 
@@ -136,7 +136,7 @@ void UIPathsDialog::m_buttonPropertySizeBrowseOnButtonClick(wxCommandEvent& even
 
 void UIPathsDialog::m_buttonImportOnButtonClick(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Import paths"),
         wxEmptyString, wxEmptyString,
@@ -150,7 +150,7 @@ void UIPathsDialog::m_buttonImportOnButtonClick(wxCommandEvent& event)
 
 void UIPathsDialog::m_buttonExportOnButtonClick(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Export paths"),
         wxEmptyString, wxEmptyString,

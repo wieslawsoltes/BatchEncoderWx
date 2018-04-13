@@ -13,7 +13,7 @@ void UIPresetsDialog::PresetsDialogOnInitDialog(wxInitDialogEvent& event)
 
     for (int i = 0; i < 100; i++)
     {
-        CPreset item
+        config::CPreset item
         {
             L"TEST",
             L"TEST"
@@ -79,9 +79,9 @@ void UIPresetsDialog::m_comboBoxFormatsOnText(wxCommandEvent& event)
 
 void UIPresetsDialog::m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event)
 {
-    m_listCtrlItems->UpdateProperties<CPreset>(
+    m_listCtrlItems->UpdateProperties<config::CPreset>(
         this,
-        [&](CPreset& item) 
+        [&](config::CPreset& item)
         { 
             m_PropertyName = item.szName;
             m_PropertyOptions = item.szOptions;
@@ -156,25 +156,25 @@ void UIPresetsDialog::m_buttonAddOnButtonClick(wxCommandEvent& event)
 
 void UIPresetsDialog::m_textCtrlPropertyNameOnText(wxCommandEvent& event)
 {
-    m_listCtrlItems->UpdateProperty<CPreset, wxString>(
+    m_listCtrlItems->UpdateProperty<config::CPreset, wxString>(
         this,
-        [](CPreset& item, wxString& text) { item.szName = text; },
+        [](config::CPreset& item, wxString& text) { item.szName = text; },
         m_PropertyName,
         m_Items);
 }
 
 void UIPresetsDialog::m_textCtrlPropertyOptionsOnText(wxCommandEvent& event)
 {
-    m_listCtrlItems->UpdateProperty<CPreset, wxString>(
+    m_listCtrlItems->UpdateProperty<config::CPreset, wxString>(
         this,
-        [](CPreset& item, wxString& text) { item.szOptions = text; },
+        [](config::CPreset& item, wxString& text) { item.szOptions = text; },
         m_PropertyOptions,
         m_Items);
 }
 
 void UIPresetsDialog::m_buttonImportOnButtonClick(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Import presets"),
         wxEmptyString, wxEmptyString,
@@ -188,7 +188,7 @@ void UIPresetsDialog::m_buttonImportOnButtonClick(wxCommandEvent& event)
 
 void UIPresetsDialog::m_buttonExportOnButtonClick(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Export presets"),
         wxEmptyString, wxEmptyString,

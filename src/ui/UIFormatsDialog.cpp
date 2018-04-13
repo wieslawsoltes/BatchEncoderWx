@@ -183,7 +183,7 @@ void UIFormatsDialog::m_textCtrlPropertyFunctionOnText(wxCommandEvent& event)
 
 void UIFormatsDialog::m_buttonPropertyFunctionBrowseOnButtonClick(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Function script"),
         wxEmptyString, wxEmptyString,
@@ -207,7 +207,7 @@ void UIFormatsDialog::m_textCtrlPropertyPathOnText(wxCommandEvent& event)
 
 void UIFormatsDialog::m_buttonPropertyPathBrowseOnButtonClick(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Executable path"),
         wxEmptyString, wxEmptyString,
@@ -221,7 +221,7 @@ void UIFormatsDialog::m_buttonPropertyPathBrowseOnButtonClick(wxCommandEvent& ev
 
 void UIFormatsDialog::m_buttonImportOnButtonClick(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Import formats"),
         wxEmptyString, wxEmptyString,
@@ -235,7 +235,7 @@ void UIFormatsDialog::m_buttonImportOnButtonClick(wxCommandEvent& event)
 
 void UIFormatsDialog::m_buttonExportOnButtonClick(wxCommandEvent& event)
 {
-    wxFileDialog *dlg = new wxFileDialog(
+    auto dlg = std::make_unique<wxFileDialog>(
         this,
         _("Export formats"),
         wxEmptyString, wxEmptyString,

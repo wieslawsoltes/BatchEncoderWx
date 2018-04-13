@@ -148,7 +148,7 @@ class MainFrame : public wxFrame
 	
 	public:
 		
-		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("BatchEncoder"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,656 ), long style = wxDEFAULT_FRAME_STYLE|wxRESIZE_BORDER|wxTAB_TRAVERSAL );
+		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("BatchEncoder"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 900,664 ), long style = wxDEFAULT_FRAME_STYLE|wxRESIZE_BORDER|wxTAB_TRAVERSAL );
 		
 		~MainFrame();
 		
@@ -220,7 +220,7 @@ class PresetsDialog : public wxDialog
 		wxString m_PropertyName; 
 		wxString m_PropertyOptions; 
 		
-		PresetsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Presets"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,656 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
+		PresetsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Presets"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,664 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~PresetsDialog();
 		
 		void m_listCtrlItemsOnContextMenu( wxMouseEvent &event )
@@ -335,7 +335,7 @@ class FormatsDialog : public wxDialog
 		wxString m_PropertyTemplate; 
 		wxString m_PropertyPath; 
 		
-		FormatsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Formats"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,656 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
+		FormatsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Formats"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,664 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~FormatsDialog();
 		
 		void m_listCtrlItemsOnContextMenu( wxMouseEvent &event )
@@ -431,7 +431,7 @@ class ToolsDialog : public wxDialog
 		wxString m_PropertyExtract; 
 		wxString m_PropertyPath; 
 		
-		ToolsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Tools"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,656 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
+		ToolsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Configure Tools"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,664 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~ToolsDialog();
 		
 		void m_listCtrlItemsOnContextMenu( wxMouseEvent &event )
@@ -501,7 +501,7 @@ class PathsDialog : public wxDialog
 		wxString m_PropertyPath; 
 		int m_PropertySize; 
 		
-		PathsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Edit Paths"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,656 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
+		PathsDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Edit Paths"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 756,664 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU ); 
 		~PathsDialog();
 		
 		void m_listCtrlItemsOnContextMenu( wxMouseEvent &event )

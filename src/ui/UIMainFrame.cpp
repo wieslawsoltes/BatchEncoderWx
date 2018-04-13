@@ -27,14 +27,14 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
 
     m_Columns =
     {
-        { 0, L"Name", 200 },
+        { 0, L"Name", 220 },
         { 1, L"Input", 50 },
         { 2, L"Size (bytes)", 80 },
-        { 3, L"Output", 70 },
+        { 3, L"Output", 120 },
         { 4, L"Preset#", 55 },
-        { 5, L"Options", 65 },
+        { 5, L"Options", 85 },
         { 6, L"Time", 90 },
-        { 7, L"Status", 80 },
+        { 7, L"Status", 140 },
     };
 
     for (auto& column : m_Columns)
@@ -75,7 +75,6 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
         }
     };
 
-    m_listCtrlItems->SetItemCount(m_Config->m_Items.size());
     m_listCtrlItems->SetFocus();
 }
 
@@ -462,5 +461,13 @@ void UIMainFrame::MainFrameOnDropFiles(wxDropFilesEvent& event)
                 wxDir::GetAllFiles(name, &files);
             }
         }
+    }
+}
+
+void UIMainFrame::RedrawItems()
+{
+    if (m_Config != nullptr)
+    {
+        m_listCtrlItems->SetItemCount(m_Config->m_Items.size());
     }
 }

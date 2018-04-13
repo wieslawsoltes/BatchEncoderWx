@@ -44,7 +44,7 @@
             <property name="minimum_size"></property>
             <property name="name">MainFrame</property>
             <property name="pos"></property>
-            <property name="size">756,656</property>
+            <property name="size">900,664</property>
             <property name="style">wxDEFAULT_FRAME_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass">; forward_declare</property>
             <property name="title">BatchEncoder</property>
@@ -2768,7 +2768,7 @@
             <property name="minimum_size"></property>
             <property name="name">PresetsDialog</property>
             <property name="pos"></property>
-            <property name="size">756,656</property>
+            <property name="size">756,664</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU</property>
             <property name="subclass">; forward_declare</property>
             <property name="title">Configure Presets</property>
@@ -4903,7 +4903,7 @@
             <property name="minimum_size"></property>
             <property name="name">FormatsDialog</property>
             <property name="pos"></property>
-            <property name="size">756,656</property>
+            <property name="size">756,664</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU</property>
             <property name="subclass">; forward_declare</property>
             <property name="title">Configure Formats</property>
@@ -9199,7 +9199,7 @@
             <property name="minimum_size"></property>
             <property name="name">ToolsDialog</property>
             <property name="pos"></property>
-            <property name="size">756,656</property>
+            <property name="size">756,664</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU</property>
             <property name="subclass">; forward_declare</property>
             <property name="title">Configure Tools</property>
@@ -12664,7 +12664,7 @@
             <property name="minimum_size"></property>
             <property name="name">PathsDialog</property>
             <property name="pos"></property>
-            <property name="size">756,656</property>
+            <property name="size">756,664</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER|wxSYSTEM_MENU</property>
             <property name="subclass">; forward_declare</property>
             <property name="title">Edit Paths</property>

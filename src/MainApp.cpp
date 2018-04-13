@@ -29,6 +29,7 @@ bool MainApp::OnInit()
     {
         auto* frame = new UIMainFrame(nullptr);
         frame->m_Config = &this->m_Config;
+        frame->RedrawItems();
         frame->Show(true);
     }
     catch (...)

@@ -100,6 +100,8 @@ protected:
     std::vector<ItemColumn> m_Columns;
 protected:
     void MainFrameOnDropFiles(wxDropFilesEvent& event);
+public:
+    void RedrawItems();
 };
 
 #endif // __UIMainFrame__

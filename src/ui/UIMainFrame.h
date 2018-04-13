@@ -94,8 +94,9 @@ public:
     /** Constructor */
     UIMainFrame(wxWindow* parent);
     //// end generated class members
+public:
+    config::CConfig* m_Config;
 protected:
-    std::vector<config::CItem> m_Items;
     std::vector<ItemColumn> m_Columns;
 protected:
     void MainFrameOnDropFiles(wxDropFilesEvent& event);

@@ -13,6 +13,7 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
     m_panelProgress->Hide();
     m_panelBottom->Show();
 
+    /*
     for (int i = 0; i < 100; i++)
     {
         config::CItem item;
@@ -20,8 +21,9 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
         item.szName = L"Name" + std::to_wstring(item.nId);
         item.nSize = i;
         item.nPreset = 0;
-        m_Items.emplace_back(std::move(item));
+        m_Config->m_Items.emplace_back(std::move(item));
     }
+    */
 
     m_Columns =
     {
@@ -42,7 +44,7 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
 
     m_listCtrlItems->GetText = [&](int nItem, int nColumn) -> std::wstring
     {
-        auto& item = m_Items[nItem];
+        auto& item = m_Config->m_Items[nItem];
         switch (nColumn)
         {
         case 0: return item.szName;
@@ -59,7 +61,7 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
 
     m_listCtrlItems->SetText = [&](int nItem, int nColumn, const wchar_t* value)->void
     {
-        auto& item = m_Items[nItem];
+        auto& item = m_Config->m_Items[nItem];
         switch (nColumn)
         {
         case 0: item.szName = value; break;
@@ -73,7 +75,7 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
         }
     };
 
-    m_listCtrlItems->SetItemCount(m_Items.size());
+    m_listCtrlItems->SetItemCount(m_Config->m_Items.size());
     m_listCtrlItems->SetFocus();
 }
 

@@ -25,7 +25,7 @@ var solution = "./BatchEncoder.sln";
 var wx = "./wx/build/msw/wx_vc15.sln";
 
 var patterns = new string[] { 
-    "./src/*.vcxproj", 
+    "./src/**/*.vcxproj", 
     "./wx/build/msw/*.vcxproj" 
 }.ToList();
 string MDd = "<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>";

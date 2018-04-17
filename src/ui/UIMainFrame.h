@@ -102,6 +102,10 @@ protected:
     void MainFrameOnDropFiles(wxDropFilesEvent& event);
 public:
     void RedrawItems();
+    void InitFormats();
+    void InitPresets();
+    void InitOutputs();
+    void InitThreads();
     void InitFrame();
 };
 

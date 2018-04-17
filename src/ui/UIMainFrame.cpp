@@ -303,7 +303,16 @@ void UIMainFrame::m_menuItemHelpAboutOnMenuSelection(wxCommandEvent& event)
 
 void UIMainFrame::m_comboBoxFormatsOnCombobox(wxCommandEvent& event)
 {
-    // TODO: Implement m_comboBoxFormatsOnCombobox
+    if (m_Config != nullptr && bTransfer == false)
+    {
+        bTransfer = true;
+
+        m_Config->m_Options.nSelectedFormat = m_comboBoxFormats->GetSelection();
+
+        bTransfer = false;
+
+        InitPresets();
+    }
 }
 
 void UIMainFrame::m_comboBoxFormatsOnText(wxCommandEvent& event)
@@ -313,7 +322,15 @@ void UIMainFrame::m_comboBoxFormatsOnText(wxCommandEvent& event)
 
 void UIMainFrame::m_comboPresetsOnCombobox(wxCommandEvent& event)
 {
-    // TODO: Implement m_comboPresetsOnCombobox
+    if (m_Config != nullptr && bTransfer == false)
+    {
+        bTransfer = true;
+
+        auto& current = m_Config->m_Formats[m_Config->m_Options.nSelectedFormat];
+        current.nDefaultPreset = m_comboPresets->GetSelection();
+
+        bTransfer = false;
+    }
 }
 
 void UIMainFrame::m_comboPresetsOnText(wxCommandEvent& event)
@@ -487,13 +504,12 @@ void UIMainFrame::RedrawItems()
     }
 }
 
-void UIMainFrame::InitFrame()
+void UIMainFrame::InitFormats()
 {
-    if (m_Config != nullptr)
+    if (m_Config != nullptr && bTransfer == false)
     {
         bTransfer = true;
 
-        // formats
         m_comboBoxFormats->Clear();
         for (size_t i = 0; i < m_Config->m_Formats.size(); i++)
         {
@@ -502,7 +518,16 @@ void UIMainFrame::InitFrame()
         }
         m_comboBoxFormats->SetSelection(m_Config->m_Options.nSelectedFormat);
 
-        // presets
+        bTransfer = false;
+    }
+}
+
+void UIMainFrame::InitPresets()
+{
+    if (m_Config != nullptr && bTransfer == false)
+    {
+        bTransfer = true;
+
         m_comboPresets->Clear();
         auto& current = m_Config->m_Formats[m_Config->m_Options.nSelectedFormat];
         for (size_t i = 0; i < current.m_Presets.size(); i++)
@@ -512,20 +537,46 @@ void UIMainFrame::InitFrame()
         }
         m_comboPresets->SetSelection(current.nDefaultPreset);
 
-        // outputs
+        bTransfer = false;
+    }
+}
+
+void UIMainFrame::InitOutputs()
+{
+    if (m_Config != nullptr && bTransfer == false)
+    {
+        bTransfer = true;
+
         m_comboBoxOutput->Clear();
         for (size_t i = 0; i < m_Config->m_Outputs.size(); i++)
         {
             auto& output = m_Config->m_Outputs[i];
             m_comboBoxOutput->Insert(output, i);
         }
-        m_comboBoxOutput->SetValue(m_Config->m_Options.szOutputPath); 
+        m_comboBoxOutput->SetValue(m_Config->m_Options.szOutputPath);
 
-        // threads
+        bTransfer = false;
+    }
+}
+
+void UIMainFrame::InitThreads()
+{
+    if (m_Config != nullptr && bTransfer == false)
+    {
+        bTransfer = true;
+
         m_spinCtrlThreads->SetMin(0);
         m_spinCtrlThreads->SetMax(INT_MAX);
         m_spinCtrlThreads->SetValue(m_Config->m_Options.nThreadCount);
 
         bTransfer = false;
     }
+}
+
+void UIMainFrame::InitFrame()
+{
+    InitFormats();
+    InitPresets();
+    InitOutputs();
+    InitThreads();
 }

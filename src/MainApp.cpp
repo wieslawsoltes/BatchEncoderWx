@@ -5,6 +5,9 @@
 #include <wx/wx.h>
 #endif
 
+#include <wx/fileconf.h>
+#include <wx/stdpaths.h>
+
 #include "MainApp.h"
 #include "Headers.h"
 #include "ui/UIMainFrame.h"
@@ -27,6 +30,12 @@ bool MainApp::OnInit()
 
     try
     {
+        wxFileConfig* m_FileConfig = new wxFileConfig(
+            wxT(""), 
+            wxT(""), 
+            this->m_Config.m_Settings.szSettingsPath + wxT("BatchEncoder.ini"));
+        wxConfigBase::Set(m_FileConfig);
+
         auto* frame = new UIMainFrame(nullptr);
         frame->m_Config = &this->m_Config;
         frame->InitFrame();

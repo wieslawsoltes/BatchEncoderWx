@@ -102,6 +102,7 @@ protected:
     void MainFrameOnDropFiles(wxDropFilesEvent& event);
 public:
     void RedrawItems();
+    void InitFrame();
 };
 
 #endif // __UIMainFrame__

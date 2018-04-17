@@ -413,23 +413,32 @@ void UIMainFrame::m_buttonBrowseOnButtonClick(wxCommandEvent& event)
     auto dlg = std::make_unique<wxDirDialog>(
         this,
         _("Output path"),
-        wxEmptyString,
+        m_Config != nullptr ? m_Config->m_Options.szOutputBrowse : wxEmptyString,
         wxDD_DEFAULT_STYLE, wxDefaultPosition, wxDefaultSize,
         _("Browse"));
     if (dlg->ShowModal() == wxID_OK)
     {
-        m_comboBoxOutput->SetLabelText(dlg->GetPath());
+        auto szOutputPath = dlg->GetPath();
+        m_Config->m_Options.szOutputBrowse = szOutputPath;
+        m_Config->m_Options.szOutputPath = szOutputPath;
+        m_comboBoxOutput->SetLabelText(szOutputPath);
     }
 }
 
 void UIMainFrame::m_spinCtrlThreadsOnSpinCtrl(wxSpinEvent& event)
 {
-    // TODO: Implement m_spinCtrlThreadsOnSpinCtrl
+    if (m_Config != nullptr)
+    {
+        m_Config->m_Options.nThreadCount = m_spinCtrlThreads->GetValue();
+    }
 }
 
 void UIMainFrame::m_spinCtrlThreadsOnSpinCtrlText(wxCommandEvent& event)
 {
-    // TODO: Implement m_spinCtrlThreadsOnSpinCtrlText
+    if (m_Config != nullptr)
+    {
+        m_Config->m_Options.nThreadCount = m_spinCtrlThreads->GetValue();
+    }
 }
 
 void UIMainFrame::m_buttonConvertOnButtonClick(wxCommandEvent& event)
@@ -469,5 +478,44 @@ void UIMainFrame::RedrawItems()
     if (m_Config != nullptr)
     {
         m_listCtrlItems->SetItemCount(m_Config->m_Items.size());
+    }
+}
+
+void UIMainFrame::InitFrame()
+{
+    if (m_Config != nullptr)
+    {
+        // formats
+        m_comboBoxFormats->Clear();
+        for (size_t i = 0; i < m_Config->m_Formats.size(); i++)
+        {
+            auto& format = m_Config->m_Formats[i];
+            m_comboBoxFormats->Insert(format.szName, i);
+        }
+        m_comboBoxFormats->SetSelection(m_Config->m_Options.nSelectedFormat);
+
+        // presets
+        m_comboPresets->Clear();
+        auto& current = m_Config->m_Formats[m_Config->m_Options.nSelectedFormat];
+        for (size_t i = 0; i < current.m_Presets.size(); i++)
+        {
+            auto& preset = current.m_Presets[i];
+            m_comboPresets->Insert(preset.szName, i);
+        }
+        m_comboPresets->SetSelection(current.nDefaultPreset);
+
+        // outputs
+        m_comboBoxOutput->Clear();
+        for (size_t i = 0; i < m_Config->m_Outputs.size(); i++)
+        {
+            auto& output = m_Config->m_Outputs[i];
+            m_comboBoxOutput->Insert(output, i);
+        }
+        m_comboBoxOutput->SetValue(m_Config->m_Options.szOutputPath); 
+
+        // threads
+        m_spinCtrlThreads->SetMin(0);
+        m_spinCtrlThreads->SetMax(INT_MAX);
+        m_spinCtrlThreads->SetValue(m_Config->m_Options.nThreadCount);
     }
 }

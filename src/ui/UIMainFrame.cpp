@@ -308,10 +308,9 @@ void UIMainFrame::m_comboBoxFormatsOnCombobox(wxCommandEvent& event)
         bTransfer = true;
 
         m_Config->m_Options.nSelectedFormat = m_comboBoxFormats->GetSelection();
+        InitPresets();
 
         bTransfer = false;
-
-        InitPresets();
     }
 }
 
@@ -340,7 +339,38 @@ void UIMainFrame::m_comboPresetsOnText(wxCommandEvent& event)
 
 void UIMainFrame::m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event)
 {
-    // TODO: Implement m_listCtrlItemsOnUpdateUI
+    if (m_Config != nullptr && bTransfer == false)
+    {
+        if (m_listCtrlItems->GetSelectedItemCount() == 1)
+        {
+            int nSelected = m_listCtrlItems->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+            if (nSelected >= 0 && m_listCtrlItems->nCurrentItem != nSelected)
+            {
+                bTransfer = true;
+
+                auto& item = m_Config->m_Items[nSelected];
+                m_listCtrlItems->nCurrentItem = nSelected;
+
+                size_t nFormat = config::CFormat::GetFormatById(m_Config->m_Formats, item.szFormatId);
+                auto& current = m_Config->m_Formats[nFormat];
+                if (nFormat >= 0 && nFormat < m_Config->m_Formats.size())
+                {
+                    if (nFormat != m_Config->m_Options.nSelectedFormat)
+                    {
+                        m_comboBoxFormats->SetSelection(nFormat);
+                        m_Config->m_Options.nSelectedFormat = nFormat;
+                        InitPresets();
+                    }
+                    if (item.nPreset >= 0 && item.nPreset < current.m_Presets.size())
+                    {
+                        m_comboPresets->SetSelection(item.nPreset);
+                    }
+                }
+
+                bTransfer = false;  
+            }
+        }
+    }
 }
 
 void UIMainFrame::m_menuItemItemsAddFileOnMenuSelection(wxCommandEvent& event)
@@ -506,10 +536,8 @@ void UIMainFrame::RedrawItems()
 
 void UIMainFrame::InitFormats()
 {
-    if (m_Config != nullptr && bTransfer == false)
+    if (m_Config != nullptr)
     {
-        bTransfer = true;
-
         m_comboBoxFormats->Clear();
         for (size_t i = 0; i < m_Config->m_Formats.size(); i++)
         {
@@ -517,17 +545,13 @@ void UIMainFrame::InitFormats()
             m_comboBoxFormats->Insert(format.szName, i);
         }
         m_comboBoxFormats->SetSelection(m_Config->m_Options.nSelectedFormat);
-
-        bTransfer = false;
     }
 }
 
 void UIMainFrame::InitPresets()
 {
-    if (m_Config != nullptr && bTransfer == false)
+    if (m_Config != nullptr)
     {
-        bTransfer = true;
-
         m_comboPresets->Clear();
         auto& current = m_Config->m_Formats[m_Config->m_Options.nSelectedFormat];
         for (size_t i = 0; i < current.m_Presets.size(); i++)
@@ -536,17 +560,13 @@ void UIMainFrame::InitPresets()
             m_comboPresets->Insert(preset.szName, i);
         }
         m_comboPresets->SetSelection(current.nDefaultPreset);
-
-        bTransfer = false;
     }
 }
 
 void UIMainFrame::InitOutputs()
 {
-    if (m_Config != nullptr && bTransfer == false)
+    if (m_Config != nullptr)
     {
-        bTransfer = true;
-
         m_comboBoxOutput->Clear();
         for (size_t i = 0; i < m_Config->m_Outputs.size(); i++)
         {
@@ -554,29 +574,30 @@ void UIMainFrame::InitOutputs()
             m_comboBoxOutput->Insert(output, i);
         }
         m_comboBoxOutput->SetValue(m_Config->m_Options.szOutputPath);
-
-        bTransfer = false;
     }
 }
 
 void UIMainFrame::InitThreads()
 {
-    if (m_Config != nullptr && bTransfer == false)
+    if (m_Config != nullptr)
     {
-        bTransfer = true;
-
         m_spinCtrlThreads->SetMin(0);
         m_spinCtrlThreads->SetMax(INT_MAX);
         m_spinCtrlThreads->SetValue(m_Config->m_Options.nThreadCount);
-
-        bTransfer = false;
     }
 }
 
 void UIMainFrame::InitFrame()
 {
-    InitFormats();
-    InitPresets();
-    InitOutputs();
-    InitThreads();
+    if (m_Config != nullptr && bTransfer == false)
+    {
+        bTransfer = true;
+
+        InitFormats();
+        InitPresets();
+        InitOutputs();
+        InitThreads();
+
+        bTransfer = false;
+    }
 }

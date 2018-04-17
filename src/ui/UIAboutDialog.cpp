@@ -20,6 +20,8 @@ void UIAboutDialog::AboutDialogOnInitDialog(wxInitDialogEvent& event)
     m_hyperlinkApplicationEmail->SetURL(L"mailto:wieslaw.soltes@gmail.com");
 
     m_buttonOK->SetFocus();
+
+    wxPersistentRegisterAndRestore(this, L"AboutDialog");
 }
 
 void UIAboutDialog::m_hyperlinkApplicationWebsiteOnHyperlink(wxHyperlinkEvent& event)

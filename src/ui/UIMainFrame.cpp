@@ -76,6 +76,9 @@ UIMainFrame::UIMainFrame(wxWindow* parent)
     };
 
     m_listCtrlItems->SetFocus();
+
+    wxPersistentRegisterAndRestore(this, L"MainFrame");
+    wxPersistentRegisterAndRestore(m_listCtrlItems, L"MainFrameList");
 }
 
 void UIMainFrame::m_menuItemFileLoadListOnMenuSelection(wxCommandEvent& event)

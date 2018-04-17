@@ -58,6 +58,9 @@ void UIToolsDialog::ToolsDialogOnInitDialog(wxInitDialogEvent& event)
     m_listCtrlItems->SetItemCount(m_Items.size());
 
     m_listCtrlItems->SetFocus();
+
+    wxPersistentRegisterAndRestore(this, L"ToolsDialog");
+    wxPersistentRegisterAndRestore(m_listCtrlItems, L"ToolsDialogList");
 }
 
 void UIToolsDialog::m_buttonDownloadSelectedOnButtonClick(wxCommandEvent& event)

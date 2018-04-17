@@ -58,6 +58,9 @@ void UIFormatsDialog::FormatsDialogOnInitDialog(wxInitDialogEvent& event)
     m_listCtrlItems->SetItemCount(m_Items.size());
 
     m_listCtrlItems->SetFocus();
+
+    wxPersistentRegisterAndRestore(this, L"FormatsDialog");
+    wxPersistentRegisterAndRestore(m_listCtrlItems, L"FormatsDialogList");
 }
 
 void UIFormatsDialog::m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event)

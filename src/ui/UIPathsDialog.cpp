@@ -52,6 +52,9 @@ void UIPathsDialog::PathsDialogOnInitDialog(wxInitDialogEvent& event)
     m_listCtrlItems->SetItemCount(m_Items.size());
 
     m_listCtrlItems->SetFocus();
+
+    wxPersistentRegisterAndRestore(this, L"PathsDialog");
+    wxPersistentRegisterAndRestore(m_listCtrlItems, L"PathsDialogList");
 }
 
 void UIPathsDialog::m_listCtrlItemsOnUpdateUI(wxUpdateUIEvent& event)

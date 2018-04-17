@@ -65,6 +65,9 @@ void UIPresetsDialog::PresetsDialogOnInitDialog(wxInitDialogEvent& event)
     m_listCtrlItems->SetItemCount(m_Items.size());
 
     m_listCtrlItems->SetFocus();
+
+    wxPersistentRegisterAndRestore(this, L"PresetsDialog");
+    wxPersistentRegisterAndRestore(m_listCtrlItems, L"PresetsDialogList");
 }
 
 void UIPresetsDialog::m_comboBoxFormatsOnCombobox(wxCommandEvent& event)

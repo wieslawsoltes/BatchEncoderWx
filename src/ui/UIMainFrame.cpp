@@ -400,12 +400,18 @@ void UIMainFrame::m_buttonStopOnButtonClick(wxCommandEvent& event)
 
 void UIMainFrame::m_comboBoxOutputOnCombobox(wxCommandEvent& event)
 {
-    // TODO: Implement m_comboBoxOutputOnCombobox
+    if (m_Config != nullptr && bTransfer == false)
+    {
+        m_Config->m_Options.szOutputPath = m_comboBoxOutput->GetValue();
+    }
 }
 
 void UIMainFrame::m_comboBoxOutputOnText(wxCommandEvent& event)
 {
-    // TODO: Implement m_comboBoxOutputOnText
+    if (m_Config != nullptr && bTransfer == false)
+    {
+        m_Config->m_Options.szOutputPath = m_comboBoxOutput->GetValue();
+    }
 }
 
 void UIMainFrame::m_buttonBrowseOnButtonClick(wxCommandEvent& event)
@@ -421,13 +427,13 @@ void UIMainFrame::m_buttonBrowseOnButtonClick(wxCommandEvent& event)
         auto szOutputPath = dlg->GetPath();
         m_Config->m_Options.szOutputBrowse = szOutputPath;
         m_Config->m_Options.szOutputPath = szOutputPath;
-        m_comboBoxOutput->SetLabelText(szOutputPath);
+        m_comboBoxOutput->SetValue(szOutputPath);
     }
 }
 
 void UIMainFrame::m_spinCtrlThreadsOnSpinCtrl(wxSpinEvent& event)
 {
-    if (m_Config != nullptr)
+    if (m_Config != nullptr && bTransfer == false)
     {
         m_Config->m_Options.nThreadCount = m_spinCtrlThreads->GetValue();
     }
@@ -435,7 +441,7 @@ void UIMainFrame::m_spinCtrlThreadsOnSpinCtrl(wxSpinEvent& event)
 
 void UIMainFrame::m_spinCtrlThreadsOnSpinCtrlText(wxCommandEvent& event)
 {
-    if (m_Config != nullptr)
+    if (m_Config != nullptr && bTransfer == false)
     {
         m_Config->m_Options.nThreadCount = m_spinCtrlThreads->GetValue();
     }
@@ -485,6 +491,8 @@ void UIMainFrame::InitFrame()
 {
     if (m_Config != nullptr)
     {
+        bTransfer = true;
+
         // formats
         m_comboBoxFormats->Clear();
         for (size_t i = 0; i < m_Config->m_Formats.size(); i++)
@@ -517,5 +525,7 @@ void UIMainFrame::InitFrame()
         m_spinCtrlThreads->SetMin(0);
         m_spinCtrlThreads->SetMax(INT_MAX);
         m_spinCtrlThreads->SetValue(m_Config->m_Options.nThreadCount);
+
+        bTransfer = false;
     }
 }

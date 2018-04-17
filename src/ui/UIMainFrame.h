@@ -95,8 +95,8 @@ public:
     UIMainFrame(wxWindow* parent);
     //// end generated class members
 public:
+    bool bTransfer = false;
     config::CConfig* m_Config;
-protected:
     std::vector<ItemColumn> m_Columns;
 protected:
     void MainFrameOnDropFiles(wxDropFilesEvent& event);

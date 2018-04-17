@@ -2,6 +2,7 @@
 #define __ItemsList__
 
 #include <wx/listctrl.h>
+#include <wx/persist.h>
 #include <functional>
 #include <string>
 
@@ -112,5 +113,65 @@ public:
         }
     }
 };
+
+class wxPersistentItemsList : public wxPersistentObject
+{
+public:
+    wxPersistentItemsList(ItemsList* list) : wxPersistentObject(list)
+    {
+        list->Bind(wxEVT_DESTROY, &wxPersistentItemsList::HandleDestroy, this);
+    }
+    ~wxPersistentItemsList()
+    {
+    }
+private:
+    void HandleDestroy(wxWindowDestroyEvent& event)
+    {
+        event.Skip();
+        if (event.GetEventObject() == GetObject())
+        {
+            wxPersistenceManager::Get().SaveAndUnregister(GetObject());
+        }
+    }
+public:
+    ItemsList *Get() const 
+    {
+        return static_cast<ItemsList *>(GetObject());
+    }
+public:
+    virtual wxString GetKind() const wxOVERRIDE
+    {
+        return L"List";
+    }
+    virtual wxString GetName() const wxOVERRIDE
+    {
+        return Get()->GetName();
+    }
+    virtual void Save() const wxOVERRIDE
+    {
+        const ItemsList * const list = Get();
+
+        // TODO: Save columns.
+        // TODO: Save columns widths.
+        // TODO: Save columns order.
+    }
+    virtual bool Restore() wxOVERRIDE
+    {
+        ItemsList * const list = Get();
+
+        // TODO: Restore columns.
+        // TODO: Restore columns widths.
+        // TODO: Restore columns order.
+
+        return true;
+    }
+
+    wxDECLARE_NO_COPY_CLASS(wxPersistentItemsList);
+};
+
+inline wxPersistentObject *wxCreatePersistentObject(ItemsList *list)
+{
+    return new wxPersistentItemsList(list);
+}
 
 #endif // __ItemsList__

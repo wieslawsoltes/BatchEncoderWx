@@ -114,6 +114,9 @@ public:
     }
 };
 
+#define wxPERSIST_COLUMN_WIDTH L"width"
+#define wxPERSIST_COLUMN_ORDER L"order"
+
 class wxPersistentItemsList : public wxPersistentObject
 {
 public:
@@ -150,20 +153,59 @@ public:
     virtual void Save() const wxOVERRIDE
     {
         const ItemsList * const list = Get();
+        const int nColumns = list->GetColumnCount();
 
-        // TODO: Save columns.
-        // TODO: Save columns widths.
-        // TODO: Save columns order.
+        // save columns widths
+        for (int i = 0; i < nColumns; i++)
+        {
+            int nWidth = list->GetColumnWidth(i);
+            SaveValue(wxPERSIST_COLUMN_WIDTH + std::to_wstring(i), nWidth);
+        }
+
+        // save columns order
+        for (int i = 0; i < nColumns; i++)
+        {
+            int nOrder = list->GetColumnOrder(i);
+            SaveValue(wxPERSIST_COLUMN_ORDER + std::to_wstring(i), nOrder);
+        }
     }
     virtual bool Restore() wxOVERRIDE
     {
         ItemsList * const list = Get();
+        const int nColumns = list->GetColumnCount();
 
-        // TODO: Restore columns.
-        // TODO: Restore columns widths.
-        // TODO: Restore columns order.
+        wxArrayInt order(nColumns);
+        int nValidColumnWidths = 0;
+        int nValidColumnOrders = 0;
 
-        return true;
+        // restore columns widths
+        for (int i = 0; i < nColumns; i++)
+        {
+            int nWidth;
+            if (RestoreValue(wxPERSIST_COLUMN_WIDTH + std::to_wstring(i), &nWidth))
+            {
+                list->SetColumnWidth(i, nWidth);
+                nValidColumnWidths++;
+            }
+        }
+
+        // restore columns order
+        for (int i = 0; i < nColumns; i++)
+        {
+            int nOrder;
+            if (RestoreValue(wxPERSIST_COLUMN_ORDER + std::to_wstring(i), &nOrder))
+            {
+                order[i] = nOrder;
+                nValidColumnOrders++;
+            }
+        }
+
+        if (nValidColumnOrders == nColumns)
+        {
+            list->SetColumnsOrder(order);
+        }
+
+        return (nValidColumnWidths == nColumns) && (nValidColumnOrders == nColumns);
     }
 
     wxDECLARE_NO_COPY_CLASS(wxPersistentItemsList);

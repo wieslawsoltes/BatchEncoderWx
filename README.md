@@ -1,6 +1,6 @@
 # BatchEncoder wxWidgets Demo
 
-[![Build status](https://ci.appveyor.com/api/projects/status/94lrua2fmv0rlv51/branch/master?svg=true)](https://ci.appveyor.com/project/wieslawsoltes/batchencoderwx/branch/master)
+[![Build status](https://dev.azure.com/wieslawsoltes/GitHub/_apis/build/status/Sources/BatchEncoderWx)](https://dev.azure.com/wieslawsoltes/GitHub/_build/latest?definitionId=68)
 
 ## Screenshots
 
@@ -49,6 +49,11 @@ git clone https://github.com/wieslawsoltes/BatchEncoderWx.git
 Update `wxWidgets` submodule.
 ```
 git submodule update --init --recursive
+```
+
+Building the executable.
+```
+.\build.ps1 -Target "Build"
 ```
 
 ### RuntimeLibrary

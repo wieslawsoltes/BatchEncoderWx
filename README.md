@@ -1,6 +1,6 @@
 # BatchEncoder wxWidgets Demo
 
-[![Build status](https://dev.azure.com/wieslawsoltes/GitHub/_apis/build/status/Sources/BatchEncoderWx)](https://dev.azure.com/wieslawsoltes/GitHub/_build/latest?definitionId=68)
+[![Build status](https://dev.azure.com/wieslawsoltes/GitHub/_apis/build/status/Old/BatchEncoderWx)](https://dev.azure.com/wieslawsoltes/GitHub/_build/latest?definitionId=68)
 
 ## Screenshots
 
